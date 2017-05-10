@@ -14,11 +14,17 @@ $(document).ready(function() {
     $(this).toggleClass("selected");
   });
 
+  var numberPlayed = function() {
+    if ($numDiv.hasClass("selected")) {
+      $selectedNumbers.addClass("played");
+    }
+  };
   // Event listener on Roll Dice button
   $rollDiceButton.on("click", function() {
     console.log("Button Clicked");
+    numberPlayed();
     // Add class "played" to numbers that have the class "selected"
-    $selectedNumbers.addClass("played");
+    // $selectedNumbers.addClass("played");
     // $numDiv.removeClass("selected");
   });
   // };
