@@ -4,7 +4,7 @@ body {
   /*border: yellow 1px solid;*/
   max-width: 1200px;
   width: 100%;
-
+  color: #FFF;
 }
 a {
   text-decoration: none;
@@ -15,6 +15,11 @@ a:active {
 header {
   text-align: center;
 }
+h1 {
+  color: #882120;
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+  0px -5px 35px rgba(255,255,255,0.3);
+}
 main {
   border: #391C18 7px ridge;
 }
@@ -24,7 +29,6 @@ main {
   border-bottom: #391C18 7px ridge;
   background-image: url("../images/dark-red-felt-2.jpeg");
   background-size: cover;
-  color: #FFF;
   text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
   0px -5px 35px rgba(255,255,255,0.3);
 }
@@ -42,6 +46,8 @@ main {
 .played {
   background-color: rgba(0,0,0,0.8) !important;
 }
+/*End styling for Number Line & Numbers*/
+
 
 /*Styling for Dice area*/
 #game-space {
@@ -63,9 +69,9 @@ main {
   padding: 0 15%;
 }
 .dice {
+  flex: 1;
   width: 139px;
   height: 139px;
-  flex: 1;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -111,19 +117,26 @@ button {
   border-radius: 50px;
   margin:20px;
   outline: none;
+  color: #FFF;
+  text-shadow: 2px 2px 5px rgba(150, 150, 150, 0.56);
+  font-size: 24px;
   flex: 1;
   border: #000 2px solid;
   justify-content: space-between;
-  background: #fefcea;
-  background: -moz-linear-gradient(top,  #fefcea 0%, #f1da36 26%, #f1da36 74%, #fefcea 100%);
-  background: -webkit-linear-gradient(top,  #fefcea 0%,#f1da36 26%,#f1da36 74%,#fefcea 100%);
-  background: linear-gradient(to bottom,  #fefcea 0%,#f1da36 26%,#f1da36 74%,#fefcea 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#fefcea',GradientType=0 );
+  background: rgb(254,244,169);
+  background: -moz-linear-gradient(top,  rgba(254,244,169,1) 0%, rgba(255,204,0,1) 52%, rgba(255,204,0,1) 100%, rgba(255,204,0,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
+  background: linear-gradient(to bottom,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef4a9', endColorstr='#ffcc00',GradientType=0 );
 
 }
 .roll-dice-button {
 }
+/*End styling for Dice area*/
+
+
+/*Styling for Scoreboard area*/
 #scoreboard {
   flex: 1;
+  text-align: center;
 }
-/*Scoreboard*/
