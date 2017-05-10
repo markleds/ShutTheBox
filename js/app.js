@@ -38,10 +38,9 @@ $(document).ready(function() {
 
 
   var rollTheDice = function() {
-    // remove ".selected" from all numbers
-
 
     playedNumbers();
+
     // remove dice background class
     $dice1.removeClass(dice1Bkgnd);
     $dice2.removeClass(dice2Bkgnd);
@@ -64,16 +63,12 @@ $(document).ready(function() {
   var $selectedNumbers = document.querySelector(".selected");
   // var selectedNumbersArray = document.querySelector(".selected");
 
-
+  // funciton that toggles the class "selected" on the numbers when clicked on
   $numDiv.on("click", function() {
     $(this).toggleClass("selected");
   });
 
-  // var numberPlayed = function() {
-  //   if ($numDiv.hasClass("selected")) {
-  //     $selectedNumbers.addClass("played");
-  //   }
-  // };
+
   // Event listener on Roll Dice button
   $rollDiceButton.on("click", function() {
     console.log("Button Clicked");
@@ -93,41 +88,20 @@ $(document).ready(function() {
     } else {
       rollTheDice();
     }
-
-
-    // numberPlayed();
-    // Add class "played" to numbers that have the class "selected"
-
-    // // remove dice background class
-    // $dice1.removeClass(dice1Bkgnd);
-    // $dice2.removeClass(dice2Bkgnd);
-    //
-    // // update dice1Bkgnd & dice2Bkgnd
-    // getDice1Bkgnd();
-    // getDice2Bkgnd();
-    //
-    // // update variable diceSum with new sum of rolled dice
-    // diceSum = (dice1Index + 1) + (dice2Index + 2);
-    // console.log(
-    //   diceSum);
-    // // console.log(diceSum);
-    // // add new dice background class to update dice background image
-    // $dice1.addClass(dice1Bkgnd);
-    // $dice2.addClass(dice2Bkgnd);
-
-    // $selectedNumbers.addClass("played");
-    // $numDiv.removeClass("selected");
   });
-  // };
 
-  // Roll Dice
-  // $rollDiceButton.on("click", function() {
-  //
-  // });
+  // Play again
+  var $playAgainButton = $("#play-again");
+  $playAgainButton.on("click", function() {
+    $numDiv.removeClass("selected played");
+    firstRoll();
+  });
+
+  // function to set the board up on load
   var firstRoll = function() {
-    // remove ".selected" from all numbers
-
-
+    for (let i = 1; i <= 12; i++) {
+      $(`#num-${i}`).text(i);
+    }
     // remove dice background class
     $dice1.removeClass(dice1Bkgnd);
     $dice2.removeClass(dice2Bkgnd);
