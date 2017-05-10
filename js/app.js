@@ -14,6 +14,8 @@ $(document).ready(function() {
 
   // variable to hold the sum of the dice for comparison to players selections on number line - updated on every roll of the dice.
   var diceSum = 0;
+  var diceRolls = 0;
+  var recordDiceRolls = 0;
 
   // function to give you a number between and including 0 & 5 for index number of dice background image classs name
   var dice1Bkgnd;
@@ -36,7 +38,10 @@ $(document).ready(function() {
     $numDiv.removeClass("selected");
   };
 
-
+  var diceRollCount = function() {
+    diceRolls++;
+    $(".current-dice-rolls").text(diceRolls);
+  };
   var rollTheDice = function() {
 
     playedNumbers();
@@ -56,6 +61,7 @@ $(document).ready(function() {
     $dice1.addClass(dice1Bkgnd);
     $dice2.addClass(dice2Bkgnd);
 
+    diceRollCount();
   };
 
   var $numDiv = $(".col-1");
@@ -71,7 +77,6 @@ $(document).ready(function() {
 
   // Event listener on Roll Dice button
   $rollDiceButton.on("click", function() {
-    console.log("Button Clicked");
     // compare sum of dice is equal to sum of selected numbers
     var sumSelectedNumbers = 0;
     var selectedNumbersArray = document.querySelectorAll(
@@ -94,12 +99,14 @@ $(document).ready(function() {
   var $playAgainButton = $("#play-again");
   $playAgainButton.on("click", function() {
     $numDiv.removeClass("selected played");
-    firstRoll();
+    setNumbers();
+    diceRolls = 0;
+    diceRollCount();
   });
 
-  // function to set the board up on load
-  var firstRoll = function() {
-    for (let i = 1; i <= 12; i++) {
+  // function to set the numbers on the board
+  var setNumbers = function() {
+    for (let i = 1; i <= 10; i++) {
       $(`#num-${i}`).text(i);
     }
     // remove dice background class
@@ -118,9 +125,10 @@ $(document).ready(function() {
     // add new dice background class to update dice background image
     $dice1.addClass(dice1Bkgnd);
     $dice2.addClass(dice2Bkgnd);
-
+    diceRolls = 0;
+    diceRollCount();
   };
-  firstRoll();
+  setNumbers();
 
 
 });

@@ -29,8 +29,6 @@
         <div id="num-8" class="col-1"></div>
         <div id="num-9" class="col-1"></div>
         <div id="num-10" class="col-1"></div>
-        <div id="num-11" class="col-1"></div>
-        <div id="num-12" class="col-1"></div>
       </div>
       <!-- End Number Line div containing numbers 1 through 12 -->
       <div id="game-space" class="main-space">
@@ -46,10 +44,43 @@
         </div>
         <div id="scoreboard" class="">
           <h2>Scoreboard</h2>
-          <div class="score-row-1">
-
+          <div class="bar1"></div>
+          <div id="score-row-1" class="score-row">
+            <div id="number-dice-rolls" class="score-block">
+              <h3>Dice Rolls</h3>
+              <span class="current-dice-rolls">0</span>
+            </div>
+            <div id="lowest-dice-rolls" class="score-block">
+              <h3>Fewest Dice Rolls</h3>
+              <span class="record-dice-rolls">0</span>
+            </div>
           </div>
+          <div id="score-row-2" class="score-row">
+            <div id="current-time" class="score-block">
+              <div class="top-bar"></div>
+              <h3>Timer</h3>
+              <span class="timer">00:00</span>
 
+            </div>
+            <div id="best-time" class="score-block">
+              <div class="top-bar"></div>
+              <h3>Best Time</h3>
+              <span class="record-time">00:00</span>
+            </div>
+          </div>
+          <div id="score-row-3" class="score-row">
+            <div id="number-games-played" class="score-block">
+              <div class="top-bar"></div>
+              <h3>Games Played</h3>
+              <span class="games-played">0</span>
+
+            </div>
+            <div id="number-games-won" class="score-block">
+              <div class="top-bar"></div>
+              <h3>Games Won</h3>
+              <span class="games-won">0</span>
+            </div>
+          </div>
         </div>
       </div>
     </main>
