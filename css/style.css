@@ -1,10 +1,16 @@
 body {
   margin-left: auto;
   margin-right: auto;
-  border: yellow 1px solid;
+  /*border: yellow 1px solid;*/
   max-width: 1200px;
   width: 100%;
 
+}
+a {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
 }
 header {
   text-align: center;
@@ -34,7 +40,7 @@ main {
   background-color: rgba(0,0,0,0.5);
 }
 .played {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.8) !important;
 }
 
 /*Styling for Dice area*/
@@ -51,10 +57,26 @@ main {
   flex: 1;
   border-right: #391C18 7px ridge;
 }
+#dice-row {
+  margin-top: 40px;
+  display: flex;
+  padding: 0 15%;
+}
 .dice {
   width: 139px;
   height: 139px;
+  flex: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  justify-content: space-around;
+  margin: 10px;
+}
+#dice-2 {
   float: left;
+}
+#dice-1 {
+  float: right;
 }
 .dice-1 {
   background-image: url("../images/dice-1.png");
@@ -73,6 +95,33 @@ main {
 }
 .dice-6 {
   background-image: url("../images/dice-6.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.button-row {
+  display: flex;
+  padding: 0 15%;
+  height:300px;
+  margin-top: 30px;
+
+}
+button {
+  width: 100px;
+  height: 30%;
+  border-radius: 50px;
+  margin:20px;
+  outline: none;
+  flex: 1;
+  border: #000 2px solid;
+  justify-content: space-between;
+  background: #fefcea;
+  background: -moz-linear-gradient(top,  #fefcea 0%, #f1da36 26%, #f1da36 74%, #fefcea 100%);
+  background: -webkit-linear-gradient(top,  #fefcea 0%,#f1da36 26%,#f1da36 74%,#fefcea 100%);
+  background: linear-gradient(to bottom,  #fefcea 0%,#f1da36 26%,#f1da36 74%,#fefcea 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#fefcea',GradientType=0 );
+
+}
+.roll-dice-button {
 }
 #scoreboard {
   flex: 1;
