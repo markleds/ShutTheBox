@@ -10,11 +10,17 @@ header {
   text-align: center;
 }
 main {
-  border:
+  border: #391C18 7px ridge;
 }
 /*Styling for Number Line & Numbers*/
 #number-line {
   display: flex;
+  border-bottom: #391C18 7px ridge;
+  background-image: url("../images/dark-red-felt-2.jpeg");
+  background-size: cover;
+  color: #FFF;
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+  0px -5px 35px rgba(255,255,255,0.3);
 }
 .col-1 {
   flex: 1;
@@ -25,20 +31,50 @@ main {
   font-size: 70px;
 }
 .selected {
-  background-color: #ccc;
+  background-color: rgba(0,0,0,0.5);
 }
 .played {
-  background-color: #666;
+  background-color: rgba(0,0,0,0.8);
 }
 
 /*Styling for Dice area*/
 #game-space {
-
+  background-image: url("../images/green_felt.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;;
+  height: 400px;
+}
+.main-space {
+  display: flex;
 }
 #dice-board {
-
+  flex: 1;
+  border-right: #391C18 7px ridge;
 }
 .dice {
-
+  width: 139px;
+  height: 139px;
+  float: left;
+}
+.dice-1 {
+  background-image: url("../images/dice-1.png");
+}
+.dice-2 {
+  background-image: url("../images/dice-2.png");
+}
+.dice-3 {
+  background-image: url("../images/dice-3.png");
+}
+.dice-4 {
+  background-image: url("../images/dice-4.png");
+}
+.dice-5 {
+  background-image: url("../images/dice-5.png");
+}
+.dice-6 {
+  background-image: url("../images/dice-6.png");
+}
+#scoreboard {
+  flex: 1;
 }
 /*Scoreboard*/

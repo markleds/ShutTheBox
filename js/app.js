@@ -6,6 +6,21 @@ $(document).ready(function() {
   var dice2;
   var diceImages = [];
 
+  var $rollDiceButton = $("#roll-dice");
 
+  var $numDiv = $(".col-1");
+  var $selectedNumbers = $(".selected");
+  $numDiv.on("click", function() {
+    $(this).toggleClass("selected");
+  });
+
+  // Event listener on Roll Dice button
+  $rollDiceButton.on("click", function() {
+    console.log("Button Clicked");
+    // Add class "played" to numbers that have the class "selected"
+    $selectedNumbers.addClass("played");
+    // $numDiv.removeClass("selected");
+  });
+  // };
 
 });
