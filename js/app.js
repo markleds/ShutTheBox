@@ -86,13 +86,16 @@ $(document).ready(function() {
     }
     console.log(sumSelectedNumbers);
     console.log(diceSum);
-    if (sumSelectedNumbers !== diceSum) {
-      alert(
-        "Your selections do not add up to the numbers on the dice. Please select again."
-      );
-    } else {
-      rollTheDice();
-    }
+    sumSelectedNumbers !== diceSum ? alert(
+      "Your selections do not add up to the sum of the numbers on the dice. Please select again."
+    ) : rollTheDice();
+    // if (sumSelectedNumbers !== diceSum) {
+    //   alert(
+    //     "Your selections do not add up to the numbers on the dice. Please select again."
+    //   );
+    // } else {
+    //   rollTheDice();
+    // }
   });
 
   // Play again
