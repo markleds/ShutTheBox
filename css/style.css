@@ -135,13 +135,15 @@ button {
 #scoreboard {
   flex: 1;
   text-align: center;
+  text-shadow: 3px 3px 6px #000;
+  font-size: 18px;
 }
 h2 {
   margin-bottom: 10px;
   text-shadow: 3px 3px 6px #000;
 }
 h3 {
-  text-shadow: 3px 3px 6px #000;
+  margin-bottom: 10px;
 }
 .bar1 {
   border-bottom: #FFF 2px solid;

@@ -16,6 +16,9 @@ $(document).ready(function() {
   var diceSum = 0;
   var diceRolls = 0;
   var recordDiceRolls = 0;
+  var $recordDiceRolls = $(".record-dice-rolls");
+  // variables to hold the number of games played
+  var gamesPlayed = 0;
 
   // function to give you a number between and including 0 & 5 for index number of dice background image classs name
   var dice1Bkgnd;
@@ -38,13 +41,15 @@ $(document).ready(function() {
     $numDiv.removeClass("selected");
   };
 
+  var rollDiceClearNumbers = function() {
+    playedNumbers();
+    rollTheDice();
+  };
   var diceRollCount = function() {
     diceRolls++;
     $(".current-dice-rolls").text(diceRolls);
   };
   var rollTheDice = function() {
-
-    playedNumbers();
 
     // remove dice background class
     $dice1.removeClass(dice1Bkgnd);
@@ -66,8 +71,6 @@ $(document).ready(function() {
 
   var $numDiv = $(".col-1");
   // var $selectedNumbers = $(".selected");
-  var $selectedNumbers = document.querySelector(".selected");
-  // var selectedNumbersArray = document.querySelector(".selected");
 
   // funciton that toggles the class "selected" on the numbers when clicked on
   $numDiv.on("click", function() {
@@ -86,9 +89,13 @@ $(document).ready(function() {
     }
     console.log(sumSelectedNumbers);
     console.log(diceSum);
-    sumSelectedNumbers !== diceSum ? alert(
-      "Your selections do not add up to the sum of the numbers on the dice. Please select again."
-    ) : rollTheDice();
+    if (sumSelectedNumbers === 0) {
+      rollTheDice();
+    } else {
+      sumSelectedNumbers !== diceSum ? alert(
+        "Your selections do not add up to the sum of the numbers on the dice. Please select again."
+      ) : rollDiceClearNumbers();
+    }
     // if (sumSelectedNumbers !== diceSum) {
     //   alert(
     //     "Your selections do not add up to the numbers on the dice. Please select again."
@@ -96,15 +103,32 @@ $(document).ready(function() {
     // } else {
     //   rollTheDice();
     // }
+    console.log(diceRolls);
   });
+
+  // Update record dice rolls with current number
+  var compareDiceRolls = function() {
+    if (recordDiceRolls === 0) {
+      recordDiceRolls = diceRolls;
+      $recordDiceRolls.text(recordDiceRolls);
+    } else if (recordDiceRolls < diceRolls) {
+      $recordDiceRolls.text(diceRolls);
+    } else {
+      return;
+    }
+  };
+
 
   // Play again
   var $playAgainButton = $("#play-again");
   $playAgainButton.on("click", function() {
+    compareDiceRolls();
     $numDiv.removeClass("selected played");
     setNumbers();
     diceRolls = 0;
     diceRollCount();
+    gamesPlayed++;
+    $(".games-played").text(gamesPlayed);
   });
 
   // function to set the numbers on the board
