@@ -6,6 +6,13 @@ body {
   width: 100%;
   color: #FFF;
 }
+.yellow-bkgnd {
+  background: rgb(254,244,169);
+  background: -moz-linear-gradient(top,  rgba(254,244,169,1) 0%, rgba(255,204,0,1) 52%, rgba(255,204,0,1) 100%, rgba(255,204,0,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
+  background: linear-gradient(to bottom,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef4a9', endColorstr='#ffcc00',GradientType=0 );
+}
 a {
   text-decoration: none;
 }
@@ -21,6 +28,60 @@ h1 {
   text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
   0px -5px 35px rgba(255,255,255,0.3);
 }
+.popup-cover {
+  display:        none;
+  position:       absolute;
+  left:           0px;
+  top:            0px;
+  width:          100%;
+  height:         100%;
+  background:     #333;
+  filter:         alpha(Opacity = 70);
+  opacity:        0.8;
+  -moz-opacity:   0.8;
+  -khtml-opacity: 0.8;
+}
+.popup-window {
+  /*opacity: 0;*/
+  color: #000;
+  display:    none;
+  margin-left: 25%;
+  /*margin-right: 25%;*/
+  top:        100px;
+  width:      400px;
+  position:   absolute;
+  z-index:    100;
+  padding:    20px;
+  background-image: url("../images/green_felt.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border:     3px solid #000;
+  box-shadow: 8px 8px 20px #000;
+  border-radius: 40px;
+}
+.popup-button {
+  display: block;
+  margin: 10px auto 0 auto;
+  padding: 7px;
+  font-size: 15px;
+  color: #FFF;
+  text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
+  border: #000 2px solid;
+  border-radius: 40px;
+  outline: none;
+  box-shadow: 3px 3px 5px #000;
+}
+.close-popup {
+  float: right;
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  z-index: 50;
+  margin: 20px;
+}
+/*.hidden {
+  display: hidden;
+}*/
 main {
   border: #391C18 7px ridge;
 }
@@ -54,7 +115,7 @@ main {
 #game-space {
   background-image: url("../images/green_felt.jpg");
   background-repeat: no-repeat;
-  background-size: cover;;
+  background-size: cover;
 }
 .main-space {
   display: flex;
@@ -120,11 +181,6 @@ main {
   flex: 1;
   border: #000 2px solid;
   justify-content: space-between;
-  background: rgb(254,244,169);
-  background: -moz-linear-gradient(top,  rgba(254,244,169,1) 0%, rgba(255,204,0,1) 52%, rgba(255,204,0,1) 100%, rgba(255,204,0,1) 100%);
-  background: -webkit-linear-gradient(top,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
-  background: linear-gradient(to bottom,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef4a9', endColorstr='#ffcc00',GradientType=0 );
   box-shadow: 5px 5px 12px #000;
 }
 /*End styling for Dice area*/
@@ -148,11 +204,6 @@ main {
   border: #000 2px solid;
   border-radius: 40px;
   outline: none;
-  background: rgb(254,244,169);
-  background: -moz-linear-gradient(top,  rgba(254,244,169,1) 0%, rgba(255,204,0,1) 52%, rgba(255,204,0,1) 100%, rgba(255,204,0,1) 100%);
-  background: -webkit-linear-gradient(top,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
-  background: linear-gradient(to bottom,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef4a9', endColorstr='#ffcc00',GradientType=0 );
   box-shadow: 3px 3px 5px #000;
 }
 h2 {

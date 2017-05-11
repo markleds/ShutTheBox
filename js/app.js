@@ -27,6 +27,7 @@ $(document).ready(function() {
   var recordDiceRolls = 0;
   // Number of games played
   var gamesPlayed = 0;
+  var gamesWon = 0;
 
   // functions to give you a number between and including 0 & 5 for the index of dice background image classs in the array diceImageClasses
   var dice1Bkgnd;
@@ -41,6 +42,39 @@ $(document).ready(function() {
     dice2Bkgnd = diceImageClasses[dice2Index];
     console.log(dice2Bkgnd);
   };
+
+  // Popup Event listeners & functionality
+  var $letsPlay = $("#lets-play");
+  var $closePopup = $(".close-popup");
+  var $howToPlay = $("#instructions");
+  var $incorrectPlay = $("#incorrect-play");
+  var $howToWindow = $("#how-to-popup");
+  var $popupCover = $(".popup-cover");
+  var $backToGame = $("#back-to-game");
+  // Event Listener to display Popup
+  $howToPlay.on("click", function() {
+    $popupCover.fadeIn(1000);
+    $howToWindow.fadeIn(1000);
+  });
+  // Event Listener to hide popup
+  $letsPlay.on("click", function() {
+    $popupCover.fadeOut(1000);
+    $howToWindow.fadeOut(1000);
+  });
+  $closePopup.on("click", function() {
+    $popupCover.fadeOut(1000);
+    $howToWindow.fadeOut(1000);
+    $incorrectPlay.fadeOut(1000);
+  });
+
+  var incorrectPopup = function() {
+    $popupCover.fadeIn(1000);
+    $incorrectPlay.fadeIn(1000);
+  };
+  $backToGame.on("click", function() {
+    $popupCover.fadeOut(1000);
+    $incorrectPlay.fadeOut(1000);
+  });
 
   // function to black out numbers that have already been played successfully
   var playedNumbers = function() {
@@ -92,9 +126,7 @@ $(document).ready(function() {
     if (sumSelectedNumbers === 0) {
       rollTheDice();
     } else if (sumSelectedNumbers !== diceSum) {
-      alert(
-        "Your selections do not add up to the sum of the numbers on the dice. Please select again."
-      );
+      incorrectPopup();
       $numDiv.removeClass("selected");
     } else {
       playedNumbers();
@@ -102,7 +134,7 @@ $(document).ready(function() {
     }
   });
 
-  // 
+  //
 
   // Update record dice rolls with current number
   var compareDiceRolls = function() {

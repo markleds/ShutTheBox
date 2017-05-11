@@ -14,7 +14,7 @@
     <div class="container">
 
     <header>
-      <button id="instructions" class="how-to-play" type="button" name="button">How To Play</button>
+      <button id="instructions" class="how-to-play yellow-bkgnd" type="button" name="button">How To Play</button>
       <h1>Flip The Box at Grandma's House</h1>
     </header>
     <main>
@@ -39,8 +39,8 @@
             <div id="dice-2" class="dice"></div>
           </div>
           <div class="button-row">
-            <button id="roll-dice" class="dice-button" >Roll Dice</button>
-            <button id="play-again" class="dice-button" >Play Again</button>
+            <button id="roll-dice" class="dice-button yellow-bkgnd" >Roll Dice</button>
+            <button id="play-again" class="dice-button yellow-bkgnd" >Play Again</button>
           </div>
         </div>
         <div id="scoreboard" class="">
@@ -85,8 +85,19 @@
         </div>
       </div>
     </main>
-    <div class="popup-window hidden">
+    <!-- pop up to explain how to play the game -->
+    <div class="popup-cover" style="display:none">
+      <div class="close-popup">X</div>
+    </div>
+    <div id="how-to-popup" class="popup-window" style="display:none">
       Here are teh instructions for the game
+      <button id="lets-play" class="popup-button yellow-bkgnd" type="button" name="button">Let's Play!</button>
+    </div>
+
+    <!-- Alert for when selected numbers do not add up to sum of dice -->
+    <div id="incorrect-play" class="popup-window" style="display:none">
+      Your selections do not add up to the sum of the numbers on the dice. Please select again.
+      <button id="back-to-game" class="popup-button yellow-bkgnd" type="button" name="button">Back to the Game!</button>
     </div>
   </div>
 
