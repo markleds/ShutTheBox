@@ -192,33 +192,9 @@ $(document).ready(function() {
       $num10.toggleClass("selected");
     }
   });
-  $(document).on("keypress", function(event) {
-    if (event.which === 13) {
-      sumSelectedNumbers = 0;
-      var selectedNumbersArray = document.querySelectorAll(
-        ".selected");
-      for (let i = 0; i < selectedNumbersArray.length; i++) {
-        sumSelectedNumbers += parseInt(selectedNumbersArray[i].innerHTML);
-      }
-      // console.log(sumSelectedNumbers);
-      // console.log(diceSum);
-      if (sumSelectedNumbers === 0) {
-        rollTheDice();
-      } else if (sumSelectedNumbers !== diceSum) {
-        incorrectPopup();
-        $numDiv.removeClass("selected");
-      } else {
-        playedNumbers();
-        // winGame();
-        rollTheDice();
-      }
-    }
-  });
 
-
-  // Event listener on Roll Dice button
-  $rollDiceButton.on("click", function() {
-    // COMPARE sum of dice to sum of selected numbers; if sum of selected numbers = 0 then roll the dice; if sum of selected numbers != sum of dice then alert; if sum of selected numbers = sume of dice then roll the dice and clear the selected numbers from Number Line - add class "played"
+  // Function to COMPARE sum of dice to sum of selected numbers; if sum of selected numbers = 0 then roll the dice; if sum of selected numbers != sum of dice then alert; if sum of selected numbers = sume of dice then roll the dice and clear the selected numbers from Number Line - add class "played"
+  var rollDiceCompleteTurn = function() {
     sumSelectedNumbers = 0;
     var selectedNumbersArray = document.querySelectorAll(
       ".selected");
@@ -236,11 +212,18 @@ $(document).ready(function() {
       playedNumbers();
       // winGame();
       rollTheDice();
-
+    }
+  };
+  // Event Listener on "return/enter" key to roll the dice and check selected numbers
+  $(document).on("keypress", function(event) {
+    if (event.which === 13) {
+      rollDiceCompleteTurn();
     }
   });
-
-  //
+  // Event listener on Roll Dice button to roll the dice and check selected numbers
+  $rollDiceButton.on("click", function() {
+    rollDiceCompleteTurn();
+  });
 
   // Update record dice rolls with current number
   var compareDiceRolls = function() {
