@@ -149,11 +149,13 @@ $(document).ready(function() {
     console.log(numbersPlayed);
   };
 
-  // Dice Roll sound mp3
+  // Dice Roll sound mp3 - from https://www.youtube.com/watch?v=o-1U19vao78
   var rollDicemp3 = function() {
     document.querySelector("#dice-mp3").play();
   };
-
+  var numberSelect = function() {
+    document.querySelector("#number-select").play();
+  };
   // update the current number of dice rolls
   var diceRollCount = function() {
     diceRolls++;
@@ -202,29 +204,40 @@ $(document).ready(function() {
   // Function that toggles the class "selected" on the numbers when clicked on
   $numDiv.on("click", function() {
     $(this).toggleClass("selected");
+    numberSelect();
   });
 
   $(document).on("keypress", function(event) {
     if (event.which === 49) {
       $num1.toggleClass("selected");
+      numberSelect();
     } else if (event.which === 50) {
       $num2.toggleClass("selected");
+      numberSelect();
     } else if (event.which === 51) {
       $num3.toggleClass("selected");
+      numberSelect();
     } else if (event.which === 52) {
       $num4.toggleClass("selected");
+      numberSelect();
     } else if (event.which === 53) {
       $num5.toggleClass("selected");
+      numberSelect();
     } else if (event.which === 54) {
       $num6.toggleClass("selected");
+      numberSelect();
     } else if (event.which === 55) {
       $num7.toggleClass("selected");
+      numberSelect();
     } else if (event.which === 56) {
       $num8.toggleClass("selected");
+      numberSelect();
     } else if (event.which === 57) {
       $num9.toggleClass("selected");
+      numberSelect();
     } else if (event.which === 48) {
       $num10.toggleClass("selected");
+      numberSelect();
     }
   });
   // Event Listener on "return/enter" key to roll the dice and check selected numbers
@@ -380,6 +393,7 @@ $(document).ready(function() {
   };
   var $startGameButton = $("#start-game");
   $startGameButton.on("click", function() {
+    $numDiv.removeClass("selected");
     rollDicemp3()
     spinDice();
     startTimer();
