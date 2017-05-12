@@ -17,6 +17,10 @@ $(document).ready(function() {
   var $num9 = $("#num-9");
   var $num10 = $("#num-10");
 
+  // Number Line classes
+  var $selected = $(".selected");
+  var $played = $(".played");
+
   // Start of game constant for the sum of selected numbers on Number Line
   var sumSelectedNumbers = 0;
 
@@ -133,6 +137,9 @@ $(document).ready(function() {
 
   // function to black out numbers that have already been played successfully
   var playedNumbers = function() {
+    // $selected.each(function(index) {
+    //   numbersPlayed.push($selected[index]);
+    // });
     for (let i = 0; i < $(".selected").length; i++) {
       numbersPlayed.push($(".selected")[i]);
     }
