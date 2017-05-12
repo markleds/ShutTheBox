@@ -36,6 +36,7 @@
       </div>
       <!-- End Number Line div containing numbers 1 through 12 -->
       <div id="game-space" class="main-space">
+        <!-- Dice and roll buttons -->
         <div id="dice-board" class="">
           <div id="dice-row">
             <div id="dice-1" class="dice"></div>
@@ -46,7 +47,10 @@
             <button id="play-again" class="dice-button yellow-bkgnd" >Play Again</button>
           </div>
         </div>
-        <div id="scoreboard" class="">
+        <!-- End Dice and roll buttons -->
+
+        <!-- Begin Scoreboard area -->
+        <div id="scoreboard" >
           <h2>Scoreboard</h2>
           <div class="bar1"></div>
           <div id="score-row-1" class="score-row">
@@ -86,6 +90,7 @@
             </div>
           </div>
         </div>
+        <!-- End Scoreboard area -->
       </div>
     </main>
     <!-- pop up to explain how to play the game -->
@@ -105,13 +110,14 @@
     <div class="win-cover" style="display:none">
       <div id="close-win-popup" class="close-popup">X</div>
     </div>
+    
+    <!-- Popup for when user wins the game -->
     <div id="win-popup" class="popup-window" style="display:none">
       You Won!!!
       <button id="play-again" class="popup-button yellow-bkgnd" type="button" name="button">Play Again</button>
     </div>
 
   </div>
-
 
   </body>
 </html>

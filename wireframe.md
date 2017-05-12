@@ -35,4 +35,8 @@ ____
 * compare Number of Dice Rolls to Lowest Number of Dice Rolls to Win; if lower, update number
 
 ____
-.animate to cover numbers? 
+.animate to cover numbers?
+
+
+Used Stack Overflow for help with animation of dice:  
+http://stackoverflow.com/questions/14859322/css3-spin-animation  

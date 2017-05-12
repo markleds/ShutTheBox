@@ -6,6 +6,9 @@ body {
   width: 100%;
   color: #FFF;
   font-family: 'Righteous', cursive;
+  background-image: url("../images/light-wood-grain.jpg");
+  background-repeat: repeat-y;
+  background-size: cover;
 }
 .yellow-bkgnd {
   background: rgb(254,244,169);
@@ -103,6 +106,7 @@ h1 {
 
 main {
   border: #170d0c 7px ridge;
+  box-shadow: 10px 10px 40px #000;
 }
 /*Styling for Number Line & Numbers*/
 #number-line {
@@ -246,7 +250,7 @@ main {
   font-size: 15px;
   color: #FFF;
   text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
-  border: #000 2px solid;
+  border: #490D0D 2px solid;
   border-radius: 40px;
   outline: none;
   box-shadow: 3px 3px 5px #000;
@@ -270,7 +274,7 @@ h3 {
 }
 .score-row {
   display: flex;
-  padding: 15px 20px 10px 20px;
+  padding: 5px 20px 15px 20px;
 }
 .score-block {
   flex: 1;
