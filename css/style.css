@@ -10,12 +10,14 @@ body {
   background-repeat: repeat-y;
   background-size: cover;
 }
+/*Used an online gradient generator for help creating the backgrounds on the buttons: http://www.colorzilla.com/gradient-editor/*/
 .yellow-bkgnd {
   background: rgb(254,244,169);
   background: -moz-linear-gradient(top,  rgba(254,244,169,1) 0%, rgba(255,204,0,1) 52%, rgba(255,204,0,1) 100%, rgba(255,204,0,1) 100%);
   background: -webkit-linear-gradient(top,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
   background: linear-gradient(to bottom,  rgba(254,244,169,1) 0%,rgba(255,204,0,1) 52%,rgba(255,204,0,1) 100%,rgba(255,204,0,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef4a9', endColorstr='#ffcc00',GradientType=0 );
+  font-family: 'Righteous', cursive;
 }
 a {
   text-decoration: none;
