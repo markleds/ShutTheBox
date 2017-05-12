@@ -149,6 +149,12 @@ $(document).ready(function() {
     console.log(numbersPlayed);
   };
 
+  // Dice Roll sound mp3
+  var rollDicemp3 = function() {
+    document.querySelector("#dice-mp3").play();
+  };
+
+  // update the current number of dice rolls
   var diceRollCount = function() {
     diceRolls++;
     $(".current-dice-rolls").text(diceRolls);
@@ -156,6 +162,8 @@ $(document).ready(function() {
   var rollTheDice = function() {
     // check to see if user has won game
     winGame();
+
+    rollDicemp3();
 
     // Dice animation
     spinDice();
@@ -350,6 +358,7 @@ $(document).ready(function() {
     for (let i = 1; i <= 10; i++) {
       $(`#num-${i}`).text(i);
     }
+
     // remove dice background class
     $dice1.removeClass(dice1Bkgnd);
     $dice2.removeClass(dice2Bkgnd);
@@ -371,6 +380,7 @@ $(document).ready(function() {
   };
   var $startGameButton = $("#start-game");
   $startGameButton.on("click", function() {
+    rollDicemp3()
     spinDice();
     startTimer();
     $("#start-button-row").attr("style", "display:none");
