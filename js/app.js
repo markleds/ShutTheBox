@@ -179,6 +179,7 @@ $(document).ready(function() {
     // check to see if user has won game
     winGame();
 
+    // play roll dice sound
     rollDicemp3();
 
     // Dice animation
@@ -194,7 +195,6 @@ $(document).ready(function() {
 
     // update variable diceSum with new sum of rolled dice
     diceSum = (dice1Index + 1) + (dice2Index + 1);
-    // console.log(diceSum);
     // add new dice background class to update dice background image
     $dice1.addClass(dice1Bkgnd);
     $dice2.addClass(dice2Bkgnd);
@@ -203,7 +203,7 @@ $(document).ready(function() {
     diceRollCount();
   };
 
-  // Function that spins dice
+  // Function that spins dice - see CSS file for source
   var spinDice = function() {
     setTimeout(function() {
       $(".dice").addClass("roll-dice-1");
@@ -216,13 +216,13 @@ $(document).ready(function() {
     }, 1200);
   };
 
-
   // Function that toggles the class "selected" on the numbers when clicked on
   $numDiv.on("click", function() {
     $(this).toggleClass("selected");
     numberSelect();
   });
 
+  // Event listener on number keys to be used to selec numbers in number line
   $(document).on("keypress", function(event) {
     if (event.which === 49) {
       $num1.toggleClass("selected");
@@ -278,7 +278,6 @@ $(document).ready(function() {
     } else if (sumSelectedNumbers !== diceSum) {
       incorrectPopup();
       $numDiv.removeClass("selected");
-      // return;
     } else {
       playedNumbers();
       rollTheDice();
@@ -303,7 +302,7 @@ $(document).ready(function() {
 
   // Timer - Thank You Bobby King - referenced from our in-class Stopwatch project
   // Global variables
-  var intervalId = null; // variable to store the interval ID to stop interval
+  var intervalId = null;
 
   // This one is for free...
   // Function to pad single digit numbers as strings with leading 0's
@@ -355,6 +354,7 @@ $(document).ready(function() {
     }
   }; //End reset timer
 
+  // compare the record time to current game's time and update record time
   var compareRecordTime = function() {
     if (recordTime === 0) {
       recordTime = time;
@@ -367,7 +367,6 @@ $(document).ready(function() {
     }
   };
   // End Timer
-
 
   // Play again
   var $playAgainButton = $("#play-again");

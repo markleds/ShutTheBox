@@ -175,6 +175,7 @@ main {
   border: #000 1px solid;
   background-color: #000;
 }
+/*To make dice spin I found some css tips on Stack Overflow: http://stackoverflow.com/questions/14859322/css3-spin-animation*/
 .roll-dice-1 {
   animation-name: spin1;
   animation-duration: 300ms;
@@ -194,11 +195,6 @@ main {
 @keyframes spin2 {
     from {transform:rotate(360deg);}
     to {transform:rotate(0deg);}
-}
-
-#dice-2 {
-}
-#dice-1 {
 }
 .dice-1 {
   background-image: url("../images/dice-1.png");
