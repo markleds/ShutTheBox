@@ -74,7 +74,7 @@ h1 {
   width:      400px;
   position:   absolute;
   z-index:    100;
-  padding: 0 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   background-image: url("../images/green_felt.jpg");
   background-repeat: no-repeat;
   background-position: top center;
@@ -85,6 +85,7 @@ h1 {
 }
 .popup-window h2 {
   text-align: center;
+  margin-top: 0;
 }
 .popup-button {
   display: block;

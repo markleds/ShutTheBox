@@ -70,6 +70,7 @@ $(document).ready(function() {
   };
 
   // Popup Event listeners & functionality
+  // Useful Popup variables
   var $letsPlay = $("#lets-play");
   var $closePopup = $("#close-popup");
   var $closeWinPopup = $(".close-win-popup");
@@ -106,6 +107,7 @@ $(document).ready(function() {
   var winGamePopup = function() {
     $winCover.fadeIn(1000);
     $winPopup.fadeIn(1000);
+    crowdCheering();
   };
   // Event Listener to close win popup window and re-set game
   $("#close-win-popup, #play-again, .win-cover").on("click", function() {
@@ -116,6 +118,7 @@ $(document).ready(function() {
     startTimer();
     numbersPlayed = [];
     sumSelectedNumbers = 0;
+    crowdCheeringStop();
   });
 
   // Function that checks to see if you have won the game
@@ -153,8 +156,19 @@ $(document).ready(function() {
   var rollDicemp3 = function() {
     document.querySelector("#dice-mp3").play();
   };
+  // Number select sound effect - from https://www.youtube.com/watch?v=YzgtRonmJBk
   var numberSelect = function() {
     document.querySelector("#number-select").play();
+  };
+  var crowdCheeringAudio = document.querySelector("#crowd-cheering");
+  // Number select sound effect - from https://www.youtube.com/watch?v=YzgtRonmJBk
+  var crowdCheering = function() {
+    crowdCheeringAudio.play();
+  };
+  // Stop and re-set Crowd Cheering audio
+  var crowdCheeringStop = function() {
+    crowdCheeringAudio.pause();
+    crowdCheeringAudio.currentTime = 0.0;
   };
   // update the current number of dice rolls
   var diceRollCount = function() {
@@ -188,6 +202,8 @@ $(document).ready(function() {
     // update the dice roll count variable
     diceRollCount();
   };
+
+  // Function that spins dice
   var spinDice = function() {
     setTimeout(function() {
       $(".dice").addClass("roll-dice-1");
@@ -241,11 +257,13 @@ $(document).ready(function() {
     }
   });
   // Event Listener on "return/enter" key to roll the dice and check selected numbers
-  $(document).on("keypress", function(event) {
-    if (event.which === 13) {
-      rollDiceCompleteTurn();
-    }
-  });
+  var returnRollDice = function() {
+    $(document).on("keypress", function(event) {
+      if (event.which === 13) {
+        rollDiceCompleteTurn();
+      }
+    });
+  };
 
   // Function to COMPARE sum of dice to sum of selected numbers; if sum of selected numbers = 0 then roll the dice; if sum of selected numbers != sum of dice then alert; if sum of selected numbers = sume of dice then roll the dice and clear the selected numbers from Number Line - add class "played"
   var rollDiceCompleteTurn = function() {
@@ -388,17 +406,17 @@ $(document).ready(function() {
     $dice1.addClass(dice1Bkgnd);
     $dice2.addClass(dice2Bkgnd);
     diceRolls = 0;
-    diceRollCount();
-
   };
-  var $startGameButton = $("#start-game");
-  $startGameButton.on("click", function() {
+
+  $("#start-game").on("click", function() {
     $numDiv.removeClass("selected");
-    rollDicemp3()
+    rollDicemp3();
     spinDice();
     startTimer();
+    diceRollCount();
     $("#start-button-row").attr("style", "display:none");
     $("#roll-dice-row").fadeIn();
+    returnRollDice();
   });
   setNumbers();
 });
