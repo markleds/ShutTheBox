@@ -42,13 +42,14 @@ $(document).ready(function() {
   // Constant for the fewest rolls of the dice to win the game
   var recordDiceRolls = 0;
 
-  // Number of games played
+  // Number of games played & won
   var gamesPlayed = 0;
   var gamesWon = 0;
   var $gamesPlayed = $(".games-played");
   var $gamesWon = $(".games-won");
 
   var time = 0;
+  var recordTime = 0;
   var $timer = $(".timer");
   var $recordTime = $(".record-time");
 
@@ -82,7 +83,7 @@ $(document).ready(function() {
     $howToWindow.fadeIn(1000);
   });
   // Event Listener to hide Instructions popup
-  $("#lets-play, #close-popup").on("click", function() {
+  $("#lets-play, #close-popup, .popup-cover").on("click", function() {
     $popupCover.fadeOut(1000);
     $howToWindow.fadeOut(1000);
   });
@@ -91,21 +92,24 @@ $(document).ready(function() {
     $popupCover.fadeIn(1000);
     $incorrectPlay.fadeIn(1000);
   };
-  // return to game
-  $("#back-to-game, #close-popup").on("click", function() {
+  // return to game from incorrect numbers selected popup
+  $("#back-to-game, #close-popup, .popup-cover").on("click", function() {
     $popupCover.fadeOut(1000);
     $incorrectPlay.fadeOut(1000);
   });
+
   // Popup window that displays if you win the game
   var winGamePopup = function() {
     $winCover.fadeIn(1000);
     $winPopup.fadeIn(1000);
   };
   // Event Listener to close win popup window and re-set game
-  $("#close-win-popup, #play-again").on("click", function() {
+  $("#close-win-popup, #play-again, .win-cover").on("click", function() {
     $winCover.fadeOut(1000);
     $winPopup.fadeOut(1000);
     setNumbers();
+    resetTimer();
+    startTimer();
     numbersPlayed = [];
     sumSelectedNumbers = 0;
   });
@@ -118,6 +122,8 @@ $(document).ready(function() {
       $gamesWon.text(gamesWon);
       gamesPlayed++;
       $gamesPlayed.text(gamesPlayed);
+      stopTimer();
+      compareRecordTime();
       $numDiv.removeClass("selected played");
       compareDiceRolls();
     } else {
@@ -141,7 +147,10 @@ $(document).ready(function() {
     $(".current-dice-rolls").text(diceRolls);
   };
   var rollTheDice = function() {
+    // check to see if user has won game
+    winGame();
 
+    // Dice animation
     spinDice();
 
     // remove dice background class
@@ -159,8 +168,7 @@ $(document).ready(function() {
     $dice1.addClass(dice1Bkgnd);
     $dice2.addClass(dice2Bkgnd);
 
-
-    winGame();
+    // update the dice roll count variable
     diceRollCount();
   };
   var spinDice = function() {
@@ -204,6 +212,12 @@ $(document).ready(function() {
       $num10.toggleClass("selected");
     }
   });
+  // Event Listener on "return/enter" key to roll the dice and check selected numbers
+  $(document).on("keypress", function(event) {
+    if (event.which === 13) {
+      rollDiceCompleteTurn();
+    }
+  });
 
   // Function to COMPARE sum of dice to sum of selected numbers; if sum of selected numbers = 0 then roll the dice; if sum of selected numbers != sum of dice then alert; if sum of selected numbers = sume of dice then roll the dice and clear the selected numbers from Number Line - add class "played"
   var rollDiceCompleteTurn = function() {
@@ -218,17 +232,12 @@ $(document).ready(function() {
     } else if (sumSelectedNumbers !== diceSum) {
       incorrectPopup();
       $numDiv.removeClass("selected");
+      // return;
     } else {
       playedNumbers();
       rollTheDice();
     }
   };
-  // Event Listener on "return/enter" key to roll the dice and check selected numbers
-  $(document).on("keypress", function(event) {
-    if (event.which === 13) {
-      rollDiceCompleteTurn();
-    }
-  });
   // Event listener on Roll Dice button and individual Dye to roll the dice and check selected numbers
   $("#roll-dice, .dice").on("click", function() {
     rollDiceCompleteTurn();
@@ -246,17 +255,88 @@ $(document).ready(function() {
     }
   };
 
+  // Timer - Thank You Bobby King - referenced from our in-class Stopwatch project
+  // Global variables
+  var intervalId = null; // variable to store the interval ID to stop interval
+
+  // This one is for free...
+  // Function to pad single digit numbers as strings with leading 0's
+  var leftPad = function(time) {
+    return time < 10 ? ("0" + time) : ("" + time);
+  };
+
+  var timeToStr = function(timeVal) {
+    var tempTime = timeVal;
+
+    var min = Math.floor(tempTime / 600);
+    tempTime = tempTime - (min * 600);
+
+    var sec = Math.floor(tempTime / 10);
+    tempTime = tempTime - (sec * 10);
+
+    return `${leftPad(min)}:${leftPad(sec)}`;
+  };
+
+  // Start Timer function
+  var startTimer = function() {
+    if (!intervalId) {
+      // setInterval to increase our stopwatch's time
+      intervalId = window.setInterval(function() {
+        // increase time
+        time += 1;
+        // Set time value
+        $timer.text(timeToStr(time));
+      }, 100);
+    }
+  }; // End start timer
+
+  // Stop Timer function
+  var stopTimer = function() {
+    // Check stopwatch state to determine if it is running or not
+    if (intervalId) {
+      window.clearInterval(intervalId);
+      intervalId = null;
+    }
+  }; // End stop timer function
+
+  // reset timer
+  var resetTimer = function() {
+    // Checks state of stopwatch to determine if it's running or not
+    if (!intervalId) {
+      // Resetting "global" state values
+      time = 0;
+      $timer.text("00:00");
+    }
+  }; //End reset timer
+
+  var compareRecordTime = function() {
+    if (recordTime === 0) {
+      recordTime = time;
+      $recordTime.text(timeToStr(recordTime));
+    } else if (time < recordTime) {
+      recordTime = time;
+      $recordTime.text(timeToStr(recordTime));
+    } else {
+      return;
+    }
+  };
+  // End Timer
+
 
   // Play again
   var $playAgainButton = $("#play-again");
-  $playAgainButton.on("click", function() {
-    $numDiv.removeClass("selected played");
-    setNumbers();
-    diceRolls = 0;
-    diceRollCount();
-    gamesPlayed++;
-    $gamesPlayed.text(gamesPlayed);
-  });
+  $playAgainButton.on("click",
+    function() {
+      $numDiv.removeClass("selected played");
+      setNumbers();
+      diceRolls = 0;
+      diceRollCount();
+      gamesPlayed++;
+      $gamesPlayed.text(gamesPlayed);
+      stopTimer();
+      resetTimer();
+      startTimer();
+    });
 
   // function to set the numbers on the board
   var setNumbers = function() {
@@ -282,7 +362,12 @@ $(document).ready(function() {
     diceRollCount();
 
   };
+  var $startGameButton = $("#start-game");
+  $startGameButton.on("click", function() {
+    spinDice();
+    startTimer();
+    $("#start-button-row").attr("style", "display:none");
+    $("#roll-dice-row").fadeIn();
+  });
   setNumbers();
-  spinDice();
-
 });

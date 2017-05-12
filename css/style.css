@@ -58,24 +58,26 @@ h1 {
   background-image: url("https://media.giphy.com/media/Q0MA8ZQpQY1Ow/giphy.gif");
   background-repeat: no-repeat;
   background-size: cover;
-  filter:         alpha(Opacity = 70);
+  filter:         alpha(Opacity = 80);
   opacity:        0.8;
   -moz-opacity:   0.8;
   -khtml-opacity: 0.8;
 }
 .popup-window {
   /*opacity: 0;*/
+  font-size: 20px;
   color: #000;
   display:    none;
   margin-left: 25%;
   /*margin-right: 25%;*/
-  top:        100px;
+  top:        75px;
   width:      400px;
   position:   absolute;
   z-index:    100;
-  padding:    20px;
+  padding: 0 20px 20px 20px;
   background-image: url("../images/green_felt.jpg");
   background-repeat: no-repeat;
+  background-position: top center;
   background-size: cover;
   border:     3px solid #000;
   box-shadow: 8px 8px 20px #000;
@@ -84,8 +86,8 @@ h1 {
 .popup-button {
   display: block;
   margin: 10px auto 0 auto;
-  padding: 7px;
-  font-size: 15px;
+  padding: 10px;
+  font-size: 20px;
   color: #FFF;
   text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
   border: #000 2px solid;
@@ -149,6 +151,7 @@ main {
 #dice-board {
   flex: 1;
   border-right: #170d0c 7px ridge;
+  width: 60%;
 }
 #dice-row {
   margin-top: 40px;
