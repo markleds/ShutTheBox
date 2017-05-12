@@ -33,6 +33,7 @@ h1 {
   color: #882120;
   text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
   0px -5px 35px rgba(255,255,255,0.3);
+  font-size: 40px;
 }
 
 /* Popup Window Styling*/
@@ -233,7 +234,7 @@ main {
   outline: none;
   color: #FFF;
   text-shadow: 2px 2px 5px rgba(150, 150, 150, 0.56);
-  font-size: 24px;
+  font-size: 28px;
   border: #000 2px solid;
   justify-content: space-between;
   box-shadow: 5px 5px 12px #000;
