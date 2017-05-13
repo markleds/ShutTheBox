@@ -29,7 +29,7 @@ header {
   text-align: center;
 }
 h1 {
-  padding-left: 100px;
+  padding-left: 145px;
   color: #882120;
   text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
   0px -5px 35px rgba(255,255,255,0.3);
@@ -237,6 +237,7 @@ main {
   border: #000 2px solid;
   justify-content: space-between;
   box-shadow: 5px 5px 12px #000;
+  padding: 15px;
 }
 /*End styling for Dice area*/
 
@@ -252,7 +253,7 @@ main {
   float: right;
   margin-right: 10px;
   padding: 7px;
-  font-size: 15px;
+  font-size: 20px;
   color: #FFF;
   text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
   border: #490D0D 2px solid;
