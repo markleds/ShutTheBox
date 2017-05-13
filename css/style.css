@@ -158,12 +158,11 @@ main {
 #dice-board {
   flex: 1;
   border-right: #170d0c 7px ridge;
-  width: 60%;
 }
 #dice-row {
   margin-top: 40px;
   display: flex;
-  padding: 0 15%;
+  padding: 0 5%;
   justify-content: space-around;
 }
 .dice {
@@ -221,7 +220,7 @@ main {
 }
 .button-row {
   display: flex;
-  padding: 0 15%;
+  padding: 0 5%;
   margin-top: 30px;
   height: 20%;
   justify-content: space-around;
@@ -302,12 +301,22 @@ h3 {
     float: none;
     margin-top: 10px;
   }
+  .main-space {
+    display: block;
+  }
   #dice-board {
     border-right: none;
+    margin-right: none;
+    margin-bottom: 20px;
+    width: 100% !important;
+    border-bottom: #170d0c 7px ridge;
   }
   #dice-row {
     margin-top: 0;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    padding: 10px;
   }
   .dice {
     width: 90px !important;
@@ -315,8 +324,10 @@ h3 {
   }
   .button-row {
     margin-top: 0;
-    display: block;
-    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    width: 95%;
   }
 
   .col-1 {
@@ -329,9 +340,6 @@ h3 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-  }
-  .main-space {
-    display: block;
   }
   .dice-button {
     font-size: 18px;
