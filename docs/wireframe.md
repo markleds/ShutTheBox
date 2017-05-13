@@ -40,3 +40,10 @@ ____
 
 Used Stack Overflow for help with animation of dice:  
 http://stackoverflow.com/questions/14859322/css3-spin-animation  
+
+
+1. Overview of the project and the goals of your game.
+2. Your approach - what problems did you need to solve to make your app work and how did you work through them?
+3. Challenges - What challenges did you face?
+4. Victories - Which aspects do you feel that you did well in the project?
+5. 3 Lines of Code - Do you have any interesting implementations you want to share?

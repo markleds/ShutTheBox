@@ -307,6 +307,7 @@ h3 {
   }
   #dice-row {
     margin-top: 0;
+    width: 100%;
   }
   .dice {
     width: 90px !important;
@@ -314,6 +315,8 @@ h3 {
   }
   .button-row {
     margin-top: 0;
+    display: block;
+    width: 100%;
   }
 
   .col-1 {
@@ -330,3 +333,8 @@ h3 {
   .main-space {
     display: block;
   }
+  .dice-button {
+    font-size: 18px;
+  }
+
+}

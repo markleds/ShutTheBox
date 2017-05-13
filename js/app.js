@@ -116,6 +116,8 @@ $(document).ready(function() {
     setNumbers();
     resetTimer();
     startTimer();
+    diceRolls = 0;
+    diceRollCount();
     numbersPlayed = [];
     sumSelectedNumbers = 0;
     crowdCheeringStop();
