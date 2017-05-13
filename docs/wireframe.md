@@ -45,5 +45,11 @@ http://stackoverflow.com/questions/14859322/css3-spin-animation
 1. Overview of the project and the goals of your game.
 2. Your approach - what problems did you need to solve to make your app work and how did you work through them?
 3. Challenges - What challenges did you face?
+Responsive design - getting everything styled to look right on both large and small screens using media queries
+Getting all of the event listeners to fire at the right times. turning them on and off depending on the which popup was displayed
+Figuring out how to correctly iterate through the number line adding and removing classes and when and how to check to see if you have won.
 4. Victories - Which aspects do you feel that you did well in the project?
+design & style
+functionality
+
 5. 3 Lines of Code - Do you have any interesting implementations you want to share?

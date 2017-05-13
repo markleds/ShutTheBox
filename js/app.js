@@ -6,6 +6,7 @@ $(document).ready(function() {
   var numbersPlayed = [];
   var $rollDiceButton = $("#roll-dice");
   var $recordDiceRolls = $(".record-dice-rolls");
+  var $yellowBkgnd = $(".yellow-bkgnd");
   var $num1 = $("#num-1");
   var $num2 = $("#num-2");
   var $num3 = $("#num-3");
@@ -121,6 +122,16 @@ $(document).ready(function() {
     numbersPlayed = [];
     sumSelectedNumbers = 0;
     crowdCheeringStop();
+  });
+
+  // Event listener to change button text to black on mouse enter and back to white on mouse leave
+  $yellowBkgnd.on("mouseenter", function() {
+    $(this).attr("style",
+      "color:#000");
+  });
+  $yellowBkgnd.on("mouseleave", function() {
+    $(this).removeAttr("style",
+      "color:#000");
   });
 
   // Function that checks to see if you have won the game
@@ -286,9 +297,11 @@ $(document).ready(function() {
     }
   };
   // Event listener on Roll Dice button and individual Dye to roll the dice and check selected numbers
-  $("#roll-dice, .dice").on("click", function() {
-    rollDiceCompleteTurn();
-  });
+  var rollDiceEventListener = function() {
+    $("#roll-dice, .dice").on("click", function() {
+      rollDiceCompleteTurn();
+    });
+  };
 
   // Update record dice rolls with current number
   var compareDiceRolls = function() {
@@ -418,6 +431,7 @@ $(document).ready(function() {
     $("#start-button-row").attr("style", "display:none");
     $("#roll-dice-row").fadeIn();
     returnRollDice();
+    rollDiceEventListener();
   });
   setNumbers();
 });
