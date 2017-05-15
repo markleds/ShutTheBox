@@ -1,5 +1,5 @@
-# Flip the Box
-https://markleds.github.io/FlipTheBox/
+# Shut the Box
+https://markleds.github.io/ShutTheBox/
 
 ### General Assembly: WDI Palmarius
 #### Mark Ledbetter
