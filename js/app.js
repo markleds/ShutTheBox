@@ -117,17 +117,16 @@ $(document).ready(function() {
     $popupCover.fadeOut(1000);
     $incorrectPlay.fadeOut(1000);
   });
-
   // Dice Roll sound mp3 - from https://www.youtube.com/watch?v=o-1U19vao78
   var rollDicemp3 = function() {
-    document.querySelector("#dice-mp3").play();
+    $("#dice-mp3")[0].play();
   };
   // Number select sound effect - from https://www.youtube.com/watch?v=YzgtRonmJBk
   var numberSelect = function() {
-    document.querySelector("#number-select").play();
+    $("#number-select")[0].play();
   };
-  var crowdCheeringAudio = document.querySelector("#crowd-cheering");
-  // Number select sound effect - from https://www.youtube.com/watch?v=barWV7RWkq0
+  var crowdCheeringAudio = $("#crowd-cheering")[0];
+  // Win crow cheering sound effect - from https://www.youtube.com/watch?v=barWV7RWkq0
   var crowdCheering = function() {
     crowdCheeringAudio.play();
   };
@@ -136,6 +135,9 @@ $(document).ready(function() {
     crowdCheeringAudio.pause();
     crowdCheeringAudio.currentTime = 0.0;
   };
+  //
+
+
 
   // Popup window that displays if you win the game
   var winGamePopup = function() {
