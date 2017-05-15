@@ -442,7 +442,7 @@ $(document).ready(function() {
       }
     };
 
-    // Timer - Thank You Bobby King - referenced from our in-class Stopwatch project
+    // Timer - Thank You Bobby King - referenced from our in-class Stopwatch project http://bobbydigital.website/
     // Global variables
     var intervalId = null;
 
@@ -614,7 +614,6 @@ $(document).ready(function() {
         });
       };
       returnRollDice2p();
-      // rollDiceCompleteTurn();
 
     };
     var eventListenersP2 = function() {
@@ -671,7 +670,6 @@ $(document).ready(function() {
         });
       };
       returnRollDice2p();
-      // rollDiceCompleteTurn();
     };
 
     // Function to COMPARE sum of dice to sum of selected numbers; if sum of selected numbers = 0 then roll the dice; if sum of selected numbers != sum of dice then alert; if sum of selected numbers = sume of dice then roll the dice and clear the selected numbers from Number Line - add class "played"
@@ -687,8 +685,7 @@ $(document).ready(function() {
         rollTheDice();
       } else if (sumSelectedNumbers !== diceSum) {
         incorrectPopup();
-        $(".col-1-2-player").removeClass("selected");
-        $(".col-2-2-player").removeClass("selected");
+        $(".col-1-2-player, .col-2-2-player").removeClass("selected");
       } else {
         playedNumbers();
         rollTheDice();
@@ -702,8 +699,7 @@ $(document).ready(function() {
       }
       $(".selected").addClass("played");
       $(".selected").text("");
-      $(".col-1-2-player").removeClass("selected");
-      $(".col-2-2-player").removeClass("selected");
+      $(".col-1-2-player, .col-2-2-player").removeClass("selected");
       if (playersTurn === 1) {
         $playersTurn.text(`${player2Name}'s Turn`);
         playersTurn = 2;
