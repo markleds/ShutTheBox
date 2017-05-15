@@ -264,10 +264,9 @@ $(document).ready(function() {
     numberOfPlayers = 2;
   });
   // function to set event listener on Start Game button to run once number of players has been selected
-  // var startGameButton = function() {
   $("#start-game").on("click", function() {
     if (numberOfPlayers === 0) {
-      alert("Please select the number of players");
+      alert("Please select the number of players.");
     } else if (numberOfPlayers === 1) {
       onePlayerGame();
       $("#welcome-scoreboard").attr("style", "display:none");
@@ -290,7 +289,6 @@ $(document).ready(function() {
       $("#roll-dice-row").fadeIn();
     }
   });
-  // };
 
   // Begin 1 player Game funcitonality
   var onePlayerGame = function() {
@@ -563,15 +561,17 @@ $(document).ready(function() {
     printPlayer2Name();
 
     var eventListenersP1 = function() {
+      // Turn off event listeners for Player 2
       $(".col-2-2-player").off("click");
       $(document).off("keypress");
-      // Function that toggles the class "selected" on the numbers when clicked on
+
+      // Function that toggles the class "selected" on the numbers when clicked on for player 1
       $(".col-1-2-player").on("click", function() {
         $(this).toggleClass("selected");
         numberSelect();
       });
 
-      // Event listener on number keys to be used to selec numbers in number line
+      // Event listener on number keys to be used to selec numbers in payer 1's number line
       $(document).on("keypress", function(event) {
         if (event.which === 49) {
           $("#num-1").toggleClass("selected");
@@ -618,15 +618,17 @@ $(document).ready(function() {
 
     };
     var eventListenersP2 = function() {
+      // Turn off event listeners for Player 1
       $(".col-1-2-player").off("click");
       $(document).off("keypress");
-      // Function that toggles the class "selected" on the numbers when clicked on
+
+      // Function that toggles the class "selected" on the numbers when clicked on for player 2
       $(".col-2-2-player").on("click", function() {
         $(this).toggleClass("selected");
         numberSelect();
       });
 
-      // Event listener on number keys to be used to selec numbers in number line
+      // Event listener on number keys to be used to selec numbers in player 2's number line
       $(document).on("keypress", function(event) {
         if (event.which === 49) {
           $("#num-1-2").toggleClass("selected");
