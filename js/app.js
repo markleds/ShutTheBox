@@ -91,6 +91,12 @@ $(document).ready(function() {
   var $winPopup = $("#win-popup");
   var $backToGame = $("#back-to-game");
   var $playAgain = $("#play-again");
+
+  // Event listener to flip title
+  $("h1").on("click", function() {
+    $(this).toggleClass("vertical-flip");
+  });
+
   // Event Listener to display Instructions Popup
   $howToPlay.on("click", function() {
     $popupCover.fadeIn(1000);
@@ -242,7 +248,7 @@ $(document).ready(function() {
     $p2NumberLine.attr("style", "display:none");
     $("#player-2-id, #player-1-id").addClass("hidden");
     numberOfPlayers = 1;
-    startGameButton();
+    // startGameButton();
   });
 
   // Event listener on 2 Player button
@@ -256,34 +262,36 @@ $(document).ready(function() {
     $p2NumberLine.removeAttr("style", "display:none");
     $("#player-2-id, #player-1-id").removeClass("hidden");
     numberOfPlayers = 2;
-    startGameButton();
+    // startGameButton();
   });
   // function to set event listener on Start Game button to run once number of players has been selected
-  var startGameButton = function() {
-    $("#start-game").on("click", function() {
-      if (numberOfPlayers === 1) {
-        onePlayerGame();
-        $("#welcome-scoreboard").attr("style", "display:none");
-        $("#1-player-scoreboard").fadeIn();
-        $("#roll-dice").text("Roll Again");
-        $("#number-of-players").attr("style", "display:none");
-        $("#dice-row").fadeIn();
-        $("#start-button-row").attr("style", "display:none");
-        $("#roll-dice-row").fadeIn();
+  // var startGameButton = function() {
+  $("#start-game").on("click", function() {
+    if (numberOfPlayers === 0) {
+      alert("Please select the number of players");
+    } else if (numberOfPlayers === 1) {
+      onePlayerGame();
+      $("#welcome-scoreboard").attr("style", "display:none");
+      $("#1-player-scoreboard").fadeIn();
+      $("#roll-dice").text("Roll Again");
+      $("#number-of-players").attr("style", "display:none");
+      $("#dice-row").fadeIn();
+      $("#start-button-row").attr("style", "display:none");
+      $("#roll-dice-row").fadeIn();
 
-      } else if (numberOfPlayers === 2) {
-        playersTurn = 1;
-        twoPlayerGame();
-        $("#welcome-scoreboard").attr("style", "display:none");
-        $("#2-player-scoreboard").fadeIn();
-        $("#roll-dice").text("Play Selected Numbers");
-        $("#number-of-players").attr("style", "display:none");
-        $("#dice-row").fadeIn();
-        $("#start-button-row").attr("style", "display:none");
-        $("#roll-dice-row").fadeIn();
-      }
-    });
-  };
+    } else if (numberOfPlayers === 2) {
+      playersTurn = 1;
+      twoPlayerGame();
+      $("#welcome-scoreboard").attr("style", "display:none");
+      $("#2-player-scoreboard").fadeIn();
+      $("#roll-dice").text("Play Selected Numbers");
+      $("#number-of-players").attr("style", "display:none");
+      $("#dice-row").fadeIn();
+      $("#start-button-row").attr("style", "display:none");
+      $("#roll-dice-row").fadeIn();
+    }
+  });
+  // };
 
   // Begin 1 player Game funcitonality
   var onePlayerGame = function() {
