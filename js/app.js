@@ -147,14 +147,14 @@ $(document).ready(function() {
   // Function that spins dice - see CSS file for source
   var spinDice = function() {
     setTimeout(function() {
-      $(".dice").addClass("roll-dice-1");
+      $dice.addClass("roll-dice-1");
     }, 20);
     setTimeout(function() {
-      $(".dice").removeClass("roll-dice-1").addClass(
+      $dice.removeClass("roll-dice-1").addClass(
         "roll-dice-2");
     }, 600);
     setTimeout(function() {
-      $(".dice").removeClass("roll-dice-2");
+      $dice.removeClass("roll-dice-2");
     }, 1200);
   };
   var setNumbers = function() {
@@ -249,7 +249,6 @@ $(document).ready(function() {
     $p2NumberLine.attr("style", "display:none");
     $("#player-2-id, #player-1-id").addClass("hidden");
     numberOfPlayers = 1;
-    // startGameButton();
   });
 
   // Event listener on 2 Player button
@@ -263,7 +262,6 @@ $(document).ready(function() {
     $p2NumberLine.removeAttr("style", "display:none");
     $("#player-2-id, #player-1-id").removeClass("hidden");
     numberOfPlayers = 2;
-    // startGameButton();
   });
   // function to set event listener on Start Game button to run once number of players has been selected
   // var startGameButton = function() {
@@ -542,18 +540,27 @@ $(document).ready(function() {
   var twoPlayerGame = function() {
     // Prompts to customize Player's names on board
     var player1Name = prompt("Please Enter Player 1's Name");
-    $("#player-1-id").text(player1Name.trim());
-    $("#player-1-record").html(
-      `<h3>${player1Name}</h3>
-    <span class'total-games-won-1'>${gamesWonP1}</span>`
-    );
-    $playersTurn.text(`${player1Name}'s Turn`);
+    // Print player 1's name to nuber line and Scoreboard if it is not ""
+    var printPlayer1Name = function() {
+      if (player1Name.trim() === "") {
+        player1Name = "Player 1";
+      } else {
+        $("#player-1-id").text(player1Name.trim());
+        $("#player-1-record h3").text(player1Name);
+        $playersTurn.text(`${player1Name}'s Turn`);
+      }
+    };
+    printPlayer1Name();
     var player2Name = prompt("Please Enter Player 2's Name");
-    $("#player-2-id").text(player2Name.trim());
-    $("#player-2-record").html(
-      `<h3>${player2Name}</h3>
-    <span class'total-games-won-1'>${gamesWonP2}</span>`
-    );
+    var printPlayer2Name = function() {
+      if (player2Name.trim() === "") {
+        player2Name = "Player 2";
+      } else {
+        $("#player-2-id").text(player2Name.trim());
+        $("#player-2-record h3").text(player2Name);
+      }
+    };
+    printPlayer2Name();
 
     var eventListenersP1 = function() {
       $(".col-2-2-player").off("click");
@@ -761,10 +768,7 @@ $(document).ready(function() {
         );
         winGamePopup();
         gamesWonP1 += 1;
-        $("#player-1-record").html(
-          `<h3>${player1Name}</h3>
-        <span class'total-games-won-1'>${gamesWonP1}</span>`
-        );
+        $(".total-games-won-1").text(gamesWonP1);
         $(".col-1-2-player, .col-2-2-player").removeClass(
           "selected played");
       } else if ($("#player-2-number-line .played").length === 10) {
@@ -773,10 +777,7 @@ $(document).ready(function() {
         );
         winGamePopup();
         gamesWonP2 += 1;
-        $("#player-2-record").html(
-          `<h3>${player2Name}</h3>
-        <span class'total-games-won-1'>${gamesWonP2}</span>`
-        );
+        $(".total-games-won-2").text(gamesWonP2);
         $(".col-1-2-player, .col-2-2-player").removeClass(
           "selected played");
       } else {
