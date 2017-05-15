@@ -36,7 +36,8 @@
     </header>
     <main>
       <!-- Number Line div containing numbers 1 through 12 -->
-      <div id="number-line" class="">
+      <div id="player-1-number-line" class="number-line-1">
+        <div id="player-1-id" class="col-1 player-id hidden">Player 1</div>
         <div id="num-1" class="col-1"></div>
         <div id="num-2" class="col-1"></div>
         <div id="num-3" class="col-1"></div>
@@ -48,11 +49,29 @@
         <div id="num-9" class="col-1"></div>
         <div id="num-10" class="col-1"></div>
       </div>
+      <div id="player-2-number-line" class="not-players-turn number-line-1" style="display:none">
+        <div id="player-2-id" class="col-1 col-2-2-player player-id hidden">Player 2</div>
+        <div id="num-1-2" class="col-2 col-2-2-player"></div>
+        <div id="num-2-2" class="col-2 col-2-2-player"></div>
+        <div id="num-3-2" class="col-2 col-2-2-player"></div>
+        <div id="num-4-2" class="col-2 col-2-2-player"></div>
+        <div id="num-5-2" class="col-2 col-2-2-player"></div>
+        <div id="num-6-2" class="col-2 col-2-2-player"></div>
+        <div id="num-7-2" class="col-2 col-2-2-player"></div>
+        <div id="num-8-2" class="col-2 col-2-2-player"></div>
+        <div id="num-9-2" class="col-2 col-2-2-player"></div>
+        <div id="num-10-2" class="col-2 col-2-2-player"></div>
+      </div>
       <!-- End Number Line div containing numbers 1 through 12 -->
       <div id="game-space" class="main-space">
         <!-- Dice and roll buttons -->
-        <div id="dice-board" class="">
-          <div id="dice-row">
+        <div id="dice-board" class="" >
+          <div id="number-of-players" class="button-row" style="display:">
+            <button id="1-player-button" class="dice-button yellow-bkgnd player-button" >1 Player</button>
+            <button id="2-player-button" class="dice-button yellow-bkgnd player-button"  >2 Players</button>
+          </div>
+
+          <div id="dice-row" style="display:none">
             <div id="dice-1" class="dice"></div>
             <div id="dice-2" class="dice"></div>
           </div>
@@ -61,49 +80,72 @@
           </div>
           <div id="roll-dice-row" class="button-row" style="display:none">
             <button id="roll-dice" class="dice-button yellow-bkgnd" >Roll Dice</button>
-            <button id="play-again" class="dice-button yellow-bkgnd"  >Play Again</button>
+            <!-- <button id="play-again" class="dice-button yellow-bkgnd"  >Play Selected</button> -->
           </div>
         </div>
         <!-- End Dice and roll buttons -->
 
         <!-- Begin Scoreboard area -->
         <div id="scoreboard" >
-          <h2>Scoreboard</h2>
-          <div class="bar1"></div>
-          <div id="score-row-1" class="score-row">
-            <div id="number-dice-rolls" class="score-block">
-              <h3>Dice Rolls</h3>
-              <span class="current-dice-rolls">0</span>
-            </div>
-            <div id="lowest-dice-rolls" class="score-block">
-              <h3>Fewest Dice Rolls</h3>
-              <span class="record-dice-rolls">0</span>
+          <div id="welcome-scoreboard" class="player-selection-intro">
+            <h2>Welcome to Flip The Box</h2>
+            <p>To begin the game, please select how many players there are using the buttons to the left, then click the "Start Game" button to begin.</p>
+            <p class="small-text"><em>For instructions on how to play the game, click the "How To Play" button in the top right corner of your screen.</em></p>
+          </div>
+          <div id="2-player-scoreboard" style="display:none">
+            <div><button id="players-turn" class="dice-button yellow-bkgnd players-turn-button" type="button" name="button">Player 1's Turn</button></div>
+            <h2>Scoreboard</h2>
+            <div class="bar1"></div>
+            <h3>Games Won</h3>
+            <div id="2-player-games-won" class="score-row">
+              <div id="player-1-record" class="score-block">
+                <h3>Player 1</h3>
+                <span class="total-games-won-1">0</span>
+              </div>
+              <div id="player-2-record" class="score-block">
+                <h3>Player 2</h3>
+                <span class="total-games-won-2">0</span>
+              </div>
             </div>
           </div>
-          <div id="score-row-2" class="score-row">
-            <div id="current-time" class="score-block">
-              <div class="top-bar"></div>
-              <h3>Timer</h3>
-              <span class="timer">00:00</span>
+          <div id="1-player-scoreboard" style="display:none">
+            <h2>Scoreboard</h2>
+            <div class="bar1"></div>
+            <div id="score-row-1" class="score-row">
+              <div id="number-dice-rolls" class="score-block">
+                <h3>Dice Rolls</h3>
+                <span class="current-dice-rolls">0</span>
+              </div>
+              <div id="lowest-dice-rolls" class="score-block">
+                <h3>Fewest Dice Rolls</h3>
+                <span class="record-dice-rolls">0</span>
+              </div>
+            </div>
+            <div id="score-row-2" class="score-row">
+              <div id="current-time" class="score-block">
+                <div class="top-bar"></div>
+                <h3>Timer</h3>
+                <span class="timer">00:00</span>
 
+              </div>
+              <div id="best-time" class="score-block">
+                <div class="top-bar"></div>
+                <h3>Best Time</h3>
+                <span class="record-time">00:00</span>
+              </div>
             </div>
-            <div id="best-time" class="score-block">
-              <div class="top-bar"></div>
-              <h3>Best Time</h3>
-              <span class="record-time">00:00</span>
-            </div>
-          </div>
-          <div id="score-row-3" class="score-row">
-            <div id="number-games-played" class="score-block">
-              <div class="top-bar"></div>
-              <h3>Games Played</h3>
-              <span class="games-played">0</span>
+            <div id="score-row-3" class="score-row">
+              <div id="number-games-played" class="score-block">
+                <div class="top-bar"></div>
+                <h3>Games Played</h3>
+                <span class="games-played">0</span>
 
-            </div>
-            <div id="number-games-won" class="score-block">
-              <div class="top-bar"></div>
-              <h3>Games Won</h3>
-              <span class="games-won">0</span>
+              </div>
+              <div id="number-games-won" class="score-block">
+                <div class="top-bar"></div>
+                <h3>Games Won</h3>
+                <span class="games-won">0</span>
+              </div>
             </div>
           </div>
         </div>

@@ -10,6 +10,12 @@ body {
   background-repeat: repeat-y;
   background-size: cover;
 }
+.hidden {
+  display:none;
+}
+.small-text {
+  font-size: 16px;
+}
 /*Used an online gradient generator for help creating the backgrounds on the buttons: http://www.colorzilla.com/gradient-editor/*/
 .yellow-bkgnd {
   background: rgb(254,244,169);
@@ -35,6 +41,15 @@ h1 {
   0px -5px 35px rgba(255,255,255,0.3);
   font-size: 40px;
 }
+/*Researched stack overflow for a good way to flip text vertically - just as a fun extra on the title: http://stackoverflow.com/questions/5406368/can-you-use-css-to-mirror-flip-text*/
+.vertical-flip {
+  -moz-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
 
 /* Popup Window Styling*/
 .popup-cover {
@@ -118,7 +133,7 @@ main {
   box-shadow: 10px 10px 40px #000;
 }
 /*Styling for Number Line & Numbers*/
-#number-line {
+.number-line-1 {
   display: flex;
   border-bottom: #170d0c 7px ridge;
   background-image: url("../images/dark-red-felt-2.jpeg");
@@ -126,14 +141,30 @@ main {
   text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
   0px -5px 35px rgba(255,255,255,0.3);
 }
+.not-players-turn {
+  color: #c95e5e;
+}
 .col-1 {
   flex: 1;
   border: #000 1px solid;
   height: 150px;
   text-align: center;
   line-height: 150px;
-  font-size: 70px;
+  font-size: 80px;
 }
+.col-1-2-player, .col-2-2-player {
+  flex: 1;
+  border: #000 1px solid;
+  height: 75px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 40px;
+}
+.player-id {
+  font-size: 30px !important;
+  line-height: 35px;
+}
+
 .selected {
   background-color: rgba(0,0,0,0.5);
 }
@@ -239,6 +270,18 @@ main {
   box-shadow: 5px 5px 12px #000;
   padding: 15px;
 }
+.button-clicked {
+  box-shadow:none;
+  color: #000;
+}
+.players-turn-button {
+  font-size: 38px;
+  width: 300px;
+  color: #000;
+}
+#roll-dice {
+  width: 300px;
+}
 /*End styling for Dice area*/
 
 
@@ -248,6 +291,10 @@ main {
   text-align: center;
   text-shadow: 3px 3px 6px #000;
   font-size: 18px;
+}
+.player-selection-intro {
+  font-size: 24px;
+  padding: 25px;
 }
 .how-to-play {
   float: right;
@@ -335,6 +382,15 @@ h3 {
     height: 70px;
     line-height: 70px;
     font-size: 40px;
+  }
+  .col-1-2-player {
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+  }
+  .player-id {
+    font-size: 20px !important;
+    line-height: 20px;
   }
   #game-space {
     background-image: url("../images/green_felt.jpg");
