@@ -766,7 +766,7 @@ $(document).ready(function() {
     var winGame2p = function() {
       if ($("#player-1-number-line .played").length === 10) {
         $("#win-popup").html(
-          `<h2>CONGRATULATIONS ${player1Name}!</h2><h2>YOU WIN!!!</h2>`
+          `<h2>CONGRATULATIONS ${player1Name}!</h2><h2>YOU WIN!!!</h2><button id="play-again" class="popup-button yellow-bkgnd" type="button" name="button">Play Again</button>`
         );
         winGamePopup();
         gamesWonP1 += 1;
@@ -775,7 +775,7 @@ $(document).ready(function() {
           "selected played");
       } else if ($("#player-2-number-line .played").length === 10) {
         $("#win-popup").html(
-          `<h2>CONGRATULATIONS ${player2Name}!</h2><h2>YOU WIN!!!</h2>`
+          `<h2>CONGRATULATIONS ${player2Name}!</h2><h2>YOU WIN!!!</h2><button id="play-again" class="popup-button yellow-bkgnd" type="button" name="button">Play Again</button>`
         );
         winGamePopup();
         gamesWonP2 += 1;
