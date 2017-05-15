@@ -182,6 +182,7 @@ $(document).ready(function() {
     diceRolls = 0;
   };
 
+  // Event listener to us the return/enter key to roll the dice
   var returnRollDice = function() {
     $(document).on("keypress", function(event) {
       if (event.which === 13) {
@@ -527,17 +528,6 @@ $(document).ready(function() {
       crowdCheeringStop();
     });
 
-    // $("#start-game").on("click", function() {
-    //   $numDiv.removeClass("selected");
-    //   rollDicemp3();
-    //   spinDice();
-    //   startTimer();
-    //   diceRollCount();
-    //   $("#start-button-row").attr("style", "display:none");
-    //   $("#roll-dice-row").fadeIn();
-    //   returnRollDice();
-    //   rollDiceEventListener();
-    // });
     setNumbers();
     rollDicemp3();
     spinDice();
@@ -736,6 +726,7 @@ $(document).ready(function() {
         rollDiceCompleteTurn();
       });
     };
+    // function that "rolls" the dice - updating their background image
     var rollTheDice = function() {
       // check to see if user has won game
       winGame2p();
@@ -762,7 +753,7 @@ $(document).ready(function() {
       $dice2.addClass(dice2Bkgnd);
     };
 
-    // Function that checks to see if you have won the game
+    // Function that checks to see if a player has won the game
     var winGame2p = function() {
       if ($("#player-1-number-line .played").length === 10) {
         $("#win-popup").html(
