@@ -83,16 +83,16 @@ h1 {
 }
 .popup-window {
   /*opacity: 0;*/
-  font-size: 20px;
+  font-size: 18px;
   color: #000;
   display:    none;
-  margin-left: 25%;
+  margin-left: 12%;
   /*margin-right: 25%;*/
-  top:        75px;
-  width:      400px;
+  top:        15px;
+  width:      65%;
   position:   absolute;
   z-index:    100;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   background-image: url("../images/green_felt.jpg");
   background-repeat: no-repeat;
   background-position: top center;
