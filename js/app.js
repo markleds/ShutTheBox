@@ -246,7 +246,7 @@ $(document).ready(function() {
     mouseEnterButton2();
     mouseLeaveButton2();
     $(".col-1").removeClass("col-1-2-player");
-    $p2NumberLine.attr("style", "display:none");
+    $p2NumberLine.hide();
     $("#player-2-id, #player-1-id").addClass("hidden");
     numberOfPlayers = 1;
   });
@@ -259,7 +259,7 @@ $(document).ready(function() {
     mouseEnterButton1();
     mouseLeaveButton1();
     $(".col-1").addClass("col-1-2-player");
-    $p2NumberLine.removeAttr("style", "display:none");
+    $p2NumberLine.show();
     $("#player-2-id, #player-1-id").removeClass("hidden");
     numberOfPlayers = 2;
   });
@@ -269,23 +269,23 @@ $(document).ready(function() {
       alert("Please select the number of players.");
     } else if (numberOfPlayers === 1) {
       onePlayerGame();
-      $("#welcome-scoreboard").attr("style", "display:none");
+      $("#welcome-scoreboard").hide();
       $("#1-player-scoreboard").fadeIn();
       $("#roll-dice").text("Roll Again");
-      $("#number-of-players").attr("style", "display:none");
+      $("#number-of-players").hide();
       $("#dice-row").fadeIn();
-      $("#start-button-row").attr("style", "display:none");
+      $("#start-button-row").hide();
       $("#roll-dice-row").fadeIn();
 
     } else if (numberOfPlayers === 2) {
       playersTurn = 1;
       twoPlayerGame();
-      $("#welcome-scoreboard").attr("style", "display:none");
+      $("#welcome-scoreboard").hide();
       $("#2-player-scoreboard").fadeIn();
       $("#roll-dice").text("Play Selected Numbers");
-      $("#number-of-players").attr("style", "display:none");
+      $("#number-of-players").hide();
       $("#dice-row").fadeIn();
-      $("#start-button-row").attr("style", "display:none");
+      $("#start-button-row").hide();
       $("#roll-dice-row").fadeIn();
     }
   });
