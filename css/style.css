@@ -136,10 +136,15 @@ main {
 .number-line-1 {
   display: flex;
   border-bottom: #170d0c 7px ridge;
-  background-image: url("../images/dark-red-felt-2.jpeg");
-  background-size: cover;
+  /*background-image: url("../images/dark-red-felt-2.jpeg");
+  background-size: cover;*/
   text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
   0px -5px 35px rgba(255,255,255,0.3);
+  background: rgb(143,35,33);
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(143,35,33,1) 0%, rgba(113,25,24,1) 47%, rgba(50,12,13,1) 99%, rgba(143,35,33,1) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(143,35,33,1) 0%,rgba(113,25,24,1) 47%,rgba(50,12,13,1) 99%,rgba(143,35,33,1) 100%);
+  background: radial-gradient(ellipse at center,  rgba(143,35,33,1) 0%,rgba(113,25,24,1) 47%,rgba(50,12,13,1) 99%,rgba(143,35,33,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f2321', endColorstr='#8f2321',GradientType=1 );
 }
 .not-players-turn {
   color: #c95e5e;
@@ -179,9 +184,14 @@ main {
 
 /*Styling for Dice area*/
 #game-space {
-  background-image: url("../images/green_felt.jpg");
+  /*background-image: url("../images/green_felt.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
+  background: rgb(41,150,67);
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(41,150,67,1) 0%, rgba(40,136,62,1) 25%, rgba(34,119,57,1) 48%, rgba(28,102,45,1) 74%, rgba(21,77,33,1) 98%);
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(41,150,67,1) 0%,rgba(40,136,62,1) 25%,rgba(34,119,57,1) 48%,rgba(28,102,45,1) 74%,rgba(21,77,33,1) 98%);
+  background: radial-gradient(ellipse at center,  rgba(41,150,67,1) 0%,rgba(40,136,62,1) 25%,rgba(34,119,57,1) 48%,rgba(28,102,45,1) 74%,rgba(21,77,33,1) 98%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299643', endColorstr='#154d21',GradientType=1 );
 }
 .main-space {
   display: flex;
