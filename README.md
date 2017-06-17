@@ -15,7 +15,7 @@ ___
 ### Technologies Used
 This game was created as a single page web app using HTML, CSS, JavaScript and jQuery. Linked files include:
  * jQuery library
- * Google Fonts: [Righteous](https://fonts.google.com/specimen/Righteous)
+ * Google Fonts: [Righteous](https://fonts.google.com/specimen/Righteous), [Changa One](https://fonts.google.com/specimen/Changa+One)
 ___
 ### How To Play The game
 **The object of the game is to clear all of the numbers 1 - 10 from the red number line.**  
