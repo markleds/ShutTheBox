@@ -3,22 +3,9 @@
 $(document).ready(function() {
   // Useful variables
   var $numDiv = $(".col-1");
-  var $numDiv1 = $(".col-1-2-player");
-  var $numDiv2 = $(".col-2-2-player");
   var numbersPlayed = [];
-  var $rollDiceButton = $("#roll-dice");
   var $recordDiceRolls = $(".record-dice-rolls");
   var $yellowBkgnd = $(".yellow-bkgnd");
-  var $num1 = $("#num-1");
-  var $num2 = $("#num-2");
-  var $num3 = $("#num-3");
-  var $num4 = $("#num-4");
-  var $num5 = $("#num-5");
-  var $num6 = $("#num-6");
-  var $num7 = $("#num-7");
-  var $num8 = $("#num-8");
-  var $num9 = $("#num-9");
-  var $num10 = $("#num-10");
 
   // Start of game constant for the sum of selected numbers on Number Line
   var sumSelectedNumbers = 0;
@@ -78,12 +65,8 @@ $(document).ready(function() {
 
   // Popup Event listeners & functionality
   // Useful Popup variables
-  var $incorrectPlay = $("#incorrect-play");
-  var $howToWindow = $("#how-to-popup");
-  var $popupCover = $(".popup-cover");
   var $winCover = $(".win-cover");
   var $winPopup = $("#win-popup");
-  var $backToGame = $("#back-to-game");
 
   // Event listener to flip title
   $("h1").on("click", function() {
@@ -92,17 +75,15 @@ $(document).ready(function() {
 
   // Event Listener to display Instructions Popup
   $("#instructions").on("click", function() {
-    // $popupCover.fadeIn(1000);
-    $howToWindow.fadeIn(1000);
+    $("#how-to-popup").fadeIn(1000);
   });
   // Event Listener to hide Instructions popup
   $("#lets-play, #close-popup, .popup-cover").on("click", function() {
-    $popupCover.fadeOut(1000);
+    $(".popup-cover").fadeOut(1000);
   });
   // function to display a popup when the incorrect numbers are selected
   var incorrectPopup = function() {
-    // $popupCover.fadeIn(1000);
-    $incorrectPlay.fadeIn(1000);
+    $("#incorrect-play").fadeIn(1000);
   };
   // Popup window that displays if you win the game
   var winGamePopup = function() {
@@ -339,34 +320,34 @@ $(document).ready(function() {
     // Event listener on number keys to be used to selec numbers in number line
     $(document).on("keypress", function(event) {
       if (event.which === 49) {
-        $num1.toggleClass("selected");
+        $("#num-1").toggleClass("selected");
         numberSelect();
       } else if (event.which === 50) {
-        $num2.toggleClass("selected");
+        $("#num-2").toggleClass("selected");
         numberSelect();
       } else if (event.which === 51) {
-        $num3.toggleClass("selected");
+        $("#num-3").toggleClass("selected");
         numberSelect();
       } else if (event.which === 52) {
-        $num4.toggleClass("selected");
+        $("#num-4").toggleClass("selected");
         numberSelect();
       } else if (event.which === 53) {
-        $num5.toggleClass("selected");
+        $("#num-5").toggleClass("selected");
         numberSelect();
       } else if (event.which === 54) {
-        $num6.toggleClass("selected");
+        $("#num-6").toggleClass("selected");
         numberSelect();
       } else if (event.which === 55) {
-        $num7.toggleClass("selected");
+        $("#num-7").toggleClass("selected");
         numberSelect();
       } else if (event.which === 56) {
-        $num8.toggleClass("selected");
+        $("#num-8").toggleClass("selected");
         numberSelect();
       } else if (event.which === 57) {
-        $num9.toggleClass("selected");
+        $("#num-9").toggleClass("selected");
         numberSelect();
       } else if (event.which === 48) {
-        $num10.toggleClass("selected");
+        $("#num-10").toggleClass("selected");
         numberSelect();
       }
     });
