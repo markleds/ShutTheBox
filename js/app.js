@@ -92,7 +92,7 @@ $(document).ready(function() {
 
   // Event Listener to display Instructions Popup
   $("#instructions").on("click", function() {
-    $popupCover.fadeIn(1000);
+    // $popupCover.fadeIn(1000);
     $howToWindow.fadeIn(1000);
   });
   // Event Listener to hide Instructions popup
