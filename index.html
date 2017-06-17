@@ -32,7 +32,7 @@
 
     <header>
       <button id="instructions" class="how-to-play yellow-bkgnd" type="button" name="button">How To Play</button>
-      <h1>Shut The Box</h1>
+      <h1 class="animated flipInX">Shut The Box</h1>
     </header>
     <main>
       <!-- Number Line div containing numbers 1 through 12 -->
@@ -153,45 +153,48 @@
       </div>
     </main>
     <!-- pop up to explain how to play the game -->
-    <div class="popup-cover" style="display:none">
+    <div id="how-to-popup" class="popup-cover" style="display:none">
       <div id="close-popup" class="close-popup">X</div>
-    </div>
-    <div id="how-to-popup" class="popup-window" style="display:none">
-      <h2>How To Play</h2>
-      The object of the game is to clear all of the numbers 1 - 10 from the red number line.</br>
-      Single Player Game
-      <ul>
-        <li>Start the game by rolling the dice.</li>
-        <li>Select a number or multiple numbers from the red number line that add up to the sum of the dots on the displayed dice.</li>
-        <li>Roll again and repeat until the number line is clear.</li>
-        <li>If you are unable to match the remaining numbers in the red number line to the dice, continue rolling until you have a playable match.</li>
-      </ul>
-      Two Player Game
-      <ul>
-        <li>The dice are rolled to start the game and the top player on the board goes first.</li>
-        <li>In turn, each player selects a number or multiple numbers from their red number line that add up to the sum of the dots on the displayed dice.</li>
-        <li>To complete the turn, click the "Play Selected Numbers" button.</li>
-        <li>If a player is unable to match any of the remaining numbers in their red number line to the sum of the dice, that player ends their turn by clicking the "Play Selected Numbers" button.</li>
-        <li>The game ends when one player has cleared all of the numbers from their number line.</li>
-      </ul>
-      <button id="lets-play" class="popup-button yellow-bkgnd" type="button" name="button">Let's Play!</button>
+      <div class="popup-window">
+        <h2>How To Play</h2>
+        The object of the game is to clear all of the numbers 1 - 10 from the red number line.</br>
+        Single Player Game
+        <ul>
+          <li>Start the game by rolling the dice.</li>
+          <li>Select a number or multiple numbers from the red number line that add up to the sum of the dots on the displayed dice.</li>
+          <li>Roll again and repeat until the number line is clear.</li>
+          <li>If you are unable to match the remaining numbers in the red number line to the dice, continue rolling until you have a playable match.</li>
+        </ul>
+        Two Player Game
+        <ul>
+          <li>The dice are rolled to start the game and the top player on the board goes first.</li>
+          <li>In turn, each player selects a number or multiple numbers from their red number line that add up to the sum of the dots on the displayed dice.</li>
+          <li>To complete the turn, click the "Play Selected Numbers" button.</li>
+          <li>If a player is unable to match any of the remaining numbers in their red number line to the sum of the dice, that player ends their turn by clicking the "Play Selected Numbers" button.</li>
+          <li>The game ends when one player has cleared all of the numbers from their number line.</li>
+        </ul>
+        <button id="lets-play" class="popup-button yellow-bkgnd" type="button" name="button">Let's Play!</button>
+      </div>
     </div>
 
     <!-- Alert for when selected numbers do not add up to sum of dice -->
-    <div id="incorrect-play" class="popup-window" style="display:none">
-      Your selected number(s) does not add up to the sum of the dots on the displayed dice. Please select again.
-      <button id="back-to-game" class="popup-button yellow-bkgnd" type="button" name="button">Back to the Game</button>
+    <div id="incorrect-play" class="popup-cover" style="display:none">
+      <div id="close-popup" class="close-popup">X</div>
+      <div id="incorrect-play-popup" class="popup-window popup-window-small">
+        Your selected number(s) does not add up to the sum of the dots on the displayed dice. Please select again.
+        <button id="lets-play" class="popup-button yellow-bkgnd" type="button" name="button">Back to the Game</button>
+      </div>
     </div>
 
     <!-- Popup for when user wins the game -->
     <div class="win-cover" style="display:none">
       <div id="close-win-popup" class="close-popup">X</div>
+      <div id="win-popup" class="popup-window" style="display:none">
+          <h2>CONGRATULATIONS!</h2>
+          <h2>YOU WIN!!!</h2>
+        <button id="play-again" class="popup-button yellow-bkgnd" type="button" name="button">Play Again</button>
     </div>
-    <div id="win-popup" class="popup-window" style="display:none">
-        <h2>CONGRATULATIONS!</h2>
-        <h2>YOU WIN!!!</h2>
-      <button id="play-again" class="popup-button yellow-bkgnd" type="button" name="button">Play Again</button>
-    </div>
+  </div>
     <audio id="dice-mp3" display="none">
       <source src="dice-roll.ogg" type="audio/ogg">
       <source src="dice-roll.mp3" type="audio/mpeg">

@@ -63,8 +63,6 @@ $(document).ready(function() {
   var $playersTurn = $("#players-turn");
   var $p1NumberLine = $("#player-1-number-line");
   var $p2NumberLine = $("#player-2-number-line");
-  var $1playerButton = $("#1-player-button");
-  var $2playerButton = $("#2-player-button");
 
   // functions to give you a number between and including 0 & 5 for the index of dice background image classs in the array diceImageClasses
   var dice1Bkgnd;
@@ -80,17 +78,12 @@ $(document).ready(function() {
 
   // Popup Event listeners & functionality
   // Useful Popup variables
-  var $letsPlay = $("#lets-play");
-  var $closePopup = $("#close-popup");
-  var $closeWinPopup = $(".close-win-popup");
-  var $howToPlay = $("#instructions");
   var $incorrectPlay = $("#incorrect-play");
   var $howToWindow = $("#how-to-popup");
   var $popupCover = $(".popup-cover");
   var $winCover = $(".win-cover");
   var $winPopup = $("#win-popup");
   var $backToGame = $("#back-to-game");
-  var $playAgain = $("#play-again");
 
   // Event listener to flip title
   $("h1").on("click", function() {
@@ -98,35 +91,39 @@ $(document).ready(function() {
   });
 
   // Event Listener to display Instructions Popup
-  $howToPlay.on("click", function() {
+  $("#instructions").on("click", function() {
     $popupCover.fadeIn(1000);
     $howToWindow.fadeIn(1000);
   });
   // Event Listener to hide Instructions popup
   $("#lets-play, #close-popup, .popup-cover").on("click", function() {
     $popupCover.fadeOut(1000);
-    $howToWindow.fadeOut(1000);
   });
   // function to display a popup when the incorrect numbers are selected
   var incorrectPopup = function() {
-    $popupCover.fadeIn(1000);
+    // $popupCover.fadeIn(1000);
     $incorrectPlay.fadeIn(1000);
   };
-  // return to game from incorrect numbers selected popup
-  $("#back-to-game, #close-popup, .popup-cover").on("click", function() {
-    $popupCover.fadeOut(1000);
-    $incorrectPlay.fadeOut(1000);
-  });
+  // Popup window that displays if you win the game
+  var winGamePopup = function() {
+    $winCover.fadeIn(1000);
+    $winPopup.fadeIn(1000);
+    crowdCheering();
+  };
+
+  // SOUND EFFECTS
   // Dice Roll sound mp3 - from https://www.youtube.com/watch?v=o-1U19vao78
   var rollDicemp3 = function() {
     $("#dice-mp3")[0].play();
   };
+
   // Number select sound effect - from https://www.youtube.com/watch?v=YzgtRonmJBk
   var numberSelect = function() {
     $("#number-select")[0].play();
   };
-  var crowdCheeringAudio = $("#crowd-cheering")[0];
+
   // Win crow cheering sound effect - from https://www.youtube.com/watch?v=barWV7RWkq0
+  var crowdCheeringAudio = $("#crowd-cheering")[0];
   var crowdCheering = function() {
     crowdCheeringAudio.play();
   };
@@ -135,16 +132,7 @@ $(document).ready(function() {
     crowdCheeringAudio.pause();
     crowdCheeringAudio.currentTime = 0.0;
   };
-  //
-
-
-
-  // Popup window that displays if you win the game
-  var winGamePopup = function() {
-    $winCover.fadeIn(1000);
-    $winPopup.fadeIn(1000);
-    crowdCheering();
-  };
+  // END SOUND EFFECTS
 
   // Function that spins dice - see CSS file for source
   var spinDice = function() {
@@ -208,45 +196,37 @@ $(document).ready(function() {
     $playersTurn.off("mouseleave");
   };
   mouseOverButton();
-  var mouseEnterButton1 = function() {
-    $1playerButton.on("mouseenter", function() {
+
+  // Hover effect for Player select buttons
+  var $1playerButton = $("#1-player-button");
+  var $2playerButton = $("#2-player-button");
+
+  var mouseEnterButton1 = function(button) {
+    button.on("mouseenter", function() {
       $(this).attr("style",
         "color:#000; box-shadow:none");
     });
   };
-  mouseEnterButton1();
+  mouseEnterButton1($1playerButton);
+  mouseEnterButton1($2playerButton);
 
-  var mouseLeaveButton1 = function() {
-    $1playerButton.on("mouseleave", function() {
+  var mouseLeaveButton1 = function(button) {
+    button.on("mouseleave", function() {
       $(this).removeAttr("style",
         "color:#000; box-shadow:none");
     });
   };
-  mouseLeaveButton1();
-
-  var mouseEnterButton2 = function() {
-    $2playerButton.on("mouseenter", function() {
-      $(this).attr("style",
-        "color:#000; box-shadow:none");
-    });
-  };
-  mouseEnterButton2();
-
-  var mouseLeaveButton2 = function() {
-    $2playerButton.on("mouseleave", function() {
-      $(this).removeAttr("style",
-        "color:#000; box-shadow:none");
-    });
-  };
-  mouseLeaveButton2();
+  mouseLeaveButton1($1playerButton);
+  mouseLeaveButton1($2playerButton);
+  // End hover effect for Player select buttons
 
   // Event listener on 1 Player button
   $1playerButton.on("click", function() {
     $(this).off("mouseleave");
     $2playerButton.removeAttr("style",
       "color:#000; box-shadow:none");
-    mouseEnterButton2();
-    mouseLeaveButton2();
+    mouseEnterButton1($2playerButton);
+    mouseLeaveButton1($2playerButton);
     $(".col-1").removeClass("col-1-2-player");
     $p2NumberLine.hide();
     $("#player-2-id, #player-1-id").addClass("hidden");
@@ -258,37 +238,29 @@ $(document).ready(function() {
     $(this).off("mouseleave");
     $1playerButton.removeAttr("style",
       "color:#000; box-shadow:none");
-    mouseEnterButton1();
-    mouseLeaveButton1();
+    mouseEnterButton1($1playerButton);
+    mouseLeaveButton1($1playerButton);
     $(".col-1").addClass("col-1-2-player");
     $p2NumberLine.show();
     $("#player-2-id, #player-1-id").removeClass("hidden");
     numberOfPlayers = 2;
   });
+
   // function to set event listener on Start Game button to run once number of players has been selected
   $("#start-game").on("click", function() {
     if (numberOfPlayers === 0) {
       alert("Please select the number of players.");
     } else if (numberOfPlayers === 1) {
       onePlayerGame();
-      $("#welcome-scoreboard").hide();
-      $("#1-player-scoreboard").fadeIn();
+      $("#welcome-scoreboard, #number-of-players, #start-button-row").hide();
+      $("#1-player-scoreboard, #dice-row, #roll-dice-row").fadeIn();
       $("#roll-dice").text("Roll Again");
-      $("#number-of-players").hide();
-      $("#dice-row").fadeIn();
-      $("#start-button-row").hide();
-      $("#roll-dice-row").fadeIn();
-
     } else if (numberOfPlayers === 2) {
       playersTurn = 1;
       twoPlayerGame();
-      $("#welcome-scoreboard").hide();
-      $("#2-player-scoreboard").fadeIn();
-      $("#roll-dice").text("Play Selected Numbers");
-      $("#number-of-players").hide();
-      $("#dice-row").fadeIn();
-      $("#start-button-row").hide();
-      $("#roll-dice-row").fadeIn();
+      $("#welcome-scoreboard, #number-of-players, #start-button-row").hide();
+      $("#2-player-scoreboard, #dice-row, #roll-dice-row").fadeIn();
+      $("#roll-dice").text("Play Selected Numbers or Roll");
     }
   });
 
@@ -448,7 +420,6 @@ $(document).ready(function() {
     // Global variables
     var intervalId = null;
 
-    // This one is for free...
     // Function to pad single digit numbers as strings with leading 0's
     var leftPad = function(time) {
       return time < 10 ? ("0" + time) : ("" + time);
@@ -500,10 +471,7 @@ $(document).ready(function() {
 
     // compare the record time to current game's time and update record time
     var compareRecordTime = function() {
-      if (recordTime === 0) {
-        recordTime = time;
-        $recordTime.text(timeToStr(recordTime));
-      } else if (time < recordTime) {
+      if ((recordTime === 0) || (time < recordTime)) {
         recordTime = time;
         $recordTime.text(timeToStr(recordTime));
       } else {
