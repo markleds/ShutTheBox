@@ -1,9 +1,9 @@
-# Shut the Box
+# Shut The Box
 https://markleds.github.io/ShutTheBox/  
 
 ![Imgur](http://i.imgur.com/KkBikXum.jpg)  
 
-#### by Mark Ledbetter
+#### by [Mark Ledbetter](http://markledbetterdesigns.com/)
 
 Shut The Box is a one or two player web app game inspired by a dice game I played as a child at my grandmother's house. The app was built using HTML, CSS, JavaScript and jQuery. The object of the game is to clear all of the numbers from the red number line.
 ___
